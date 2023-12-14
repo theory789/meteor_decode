@@ -25,6 +25,9 @@ if (is_arm EQUAL "0")
 	set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -mcpu=native -mfpu=auto")
 endif()
 
+set(CMAKE_THREAD_PREFER_PTHREAD OFF)
+set(CMAKE_HAVE_THREADS_LIBRARY OFF)
+
 
 set(LIBRARY_SOURCES
 	correlator/correlator.c correlator/correlator.h
@@ -79,6 +82,9 @@ if (USE_PNG)
 	endif()
 endif()
 
+find_package(PythonLibs REQUIRED)
+include_directories(${PYTHON_INCLUDE_DIRS})
+
 # Main library target
 add_library(lrpt_static STATIC ${LIBRARY_SOURCES})
 target_include_directories(lrpt_static PRIVATE ${COMMON_INC_DIRS})
@@ -91,6 +97,8 @@ target_include_directories(lrpt PRIVATE ${COMMON_INC_DIRS})
 add_executable(meteor_decode main.c ${EXEC_SOURCES})
 target_include_directories(meteor_decode PRIVATE ${COMMON_INC_DIRS})
 target_link_libraries(meteor_decode PRIVATE lrpt_static)
+
+target_link_libraries(meteor_decode PRIVATE ${PYTHON_LIBRARIES})
 
 # Add links to PNG library if enabled
 if(USE_PNG AND PNG_LIBRARY)

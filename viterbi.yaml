@@ -1,0 +1,19 @@
+---
+cores:
+
+  lab8_io_core:
+    type: io
+
+    inputs:
+      valid_out: 1
+      vit_desc: 1
+      last_state: 6
+
+    outputs:
+      soft_inp: 8
+      manta_rst: 1
+      valid_in: 1
+uart:
+  port: "/dev/ttyUSB1"
+  baudrate: 3000000
+  clock_freq: 100000000

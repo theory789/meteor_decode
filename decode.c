@@ -89,9 +89,12 @@ decode_soft_cadu(Mpdu *dst, int (*read)(int8_t *dst, size_t len))
 			soft_derotate(soft_cadu+offset, CADU_SOFT_LEN, rotation);
 
 			/* Finish decoding the past frame (output is VITERBI_DELAY bits late) */
-			vit = viterbi_decode(((uint8_t*)&cadu) + sizeof(Cadu)-VITERBI_DELAY,
+			/* vit = viterbi_decode(((uint8_t*)&cadu) + sizeof(Cadu)-VITERBI_DELAY, */
+			/* 		soft_cadu+offset, */
+			/* 		VITERBI_DELAY); */
+			vit = viterbi_decode(((uint8_t*)&cadu) + sizeof(Cadu)-0,
 					soft_cadu+offset,
-					VITERBI_DELAY);
+					0);
 
 			/* Descramble and error correct */
 			descramble(&cadu);
@@ -128,9 +131,12 @@ decode_soft_cadu(Mpdu *dst, int (*read)(int8_t *dst, size_t len))
 
 		case VIT_SECOND:
 			/* Viterbi decode (2/2) */
+			/* vit += viterbi_decode((uint8_t*)&cadu, */
+			/* 		soft_cadu+offset+2*8*VITERBI_DELAY, */
+			/* 		sizeof(Cadu)-VITERBI_DELAY); */
 			vit += viterbi_decode((uint8_t*)&cadu,
-					soft_cadu+offset+2*8*VITERBI_DELAY,
-					sizeof(Cadu)-VITERBI_DELAY);
+					soft_cadu+offset+2*8*0,
+					sizeof(Cadu)-0);
 			_vit = vit / sizeof(Cadu);
 			_state = READ;
 			break;

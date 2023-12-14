@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 #include "protocol/cadu.h"
+#include <Python.h>
 
 #define G1 0x79             /* Connection polynomial #1 */
 #define G2 0x5B             /* Connection polynomial #2 */
@@ -12,7 +13,8 @@
 #define MEM_DEPTH (NUM_STATES)              /* Maximum backtracking depth, in bits */
 #define MEM_START (MEM_DEPTH * 1/2)         /* Portion of the backtracking to consider "not yet converged" */
 #define MEM_BACKTRACE (MEM_DEPTH-MEM_START) /* Complementary of MEM_START */
-#define VITERBI_DELAY (MEM_START/8)         /* Internal buffer size, in bytes */
+/* #define VITERBI_DELAY (MEM_START/8)         /1* Internal buffer size, in bytes *1/ */
+#define VITERBI_DELAY 0
 
 #if (MEM_START % 8)
 #error "MEM_START should be a multiple of 8"
