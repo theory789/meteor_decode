@@ -32,21 +32,6 @@ def viterbi(length, soft_cadu):
     vit_desc_out = []
     wait_time = 0
     valid_count = 0
-    last_state_file = "last_state.txt"
-
-    if (os.path.exists(last_state_file) and os.stat(last_state_file).st_size != 0):
-        m.lab8_io_core.manta_rst.set(1) # set the value val3_out to be val3
-        time.sleep(0.01)
-        m.lab8_io_core.manta_rst.set(0) # set the value val3_out to be val3
-        time.sleep(0.01)
-        with open(last_state_file, 'r') as f:
-            last_state = int(f.read())
-            print(last_state)
-            last_state = bin(last_state & 0b111111)[2:0].zfill(6)
-            for i in range(1, 7):
-                m.lab8_io_core.soft_inp.set(int(last_state[-i])) # set the value val3_out to be val3
-                m.lab8_io_core.valid_in.set(1) # set the value val4_out to be val4
-                m.lab8_io_core.valid_in.set(0) # set the value val4_out to be val4
 
     for i in range(0, length, 2):
         soft_inp = int(soft_cadu[i])
@@ -68,29 +53,14 @@ def viterbi(length, soft_cadu):
         if (valid_out == 1):
             vit_desc_out.append(vit_desc)
             valid_count += 1
-            # print(f"Vit_desc: {vit_desc}")
-            print(valid_count)
+            print(f"Vit_desc: {vit_desc}")
+            # print(valid_count)
 
 
-    while (valid_count != length):
-        m.lab8_io_core.soft_inp.set(0) # set the value val3_out to be val3
-        m.lab8_io_core.valid_in.set(1) # set the value val4_out to be val4
-        m.lab8_io_core.valid_in.set(0) # set the value val4_out to be val4
-        m.lab8_io_core.soft_inp.set(0) # set the value val3_out to be val3
-        m.lab8_io_core.valid_in.set(1) # set the value val4_out to be val4
-        m.lab8_io_core.valid_in.set(0) # set the value val4_out to be val4
-        valid_out = m.lab8_io_core.valid_out.get() # read in the output from our divider
-        vit_desc = m.lab8_io_core.vit_desc.get() # read in the output from our divider
-        last_state = m.lab8_io_core.last_state.get()
-        vit_desc_out.append(vit_desc)
-        print(valid_count)
-        valid_count += 1
 
     with open('viterbi.txt', 'w') as f:
         for i in vit_desc_out: 
             f.write(str(i))
-    with open(last_state_file, 'w') as f:
-        f.write(str(last_state))
     with open('viterbi_save.txt', 'ab') as f:
         a = np.array(vit_desc_out)
         np.savetxt(f, a, fmt='%.1e')
