@@ -1,0 +1,2590 @@
+#-----------------------------------------------------------
+# Vivado v2023.1 (64-bit)
+# SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
+# IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+# SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+# Start of session at: Thu Dec 14 14:00:07 2023
+# Process ID: 1320
+# Current directory: /home/fpga
+# Command line: vivado -mode batch -source build.tcl
+# Log file: /home/fpga/vivado.log
+# Journal file: /home/fpga/vivado.jou
+# Running On: worker, OS: Linux, CPU Frequency: 2100.000 MHz, CPU Physical cores: 1, Host memory: 6218 MB
+#-----------------------------------------------------------
+source build.tcl
+# set partNum xc7s50csga324-1
+# set outputDir obj
+# file mkdir $outputDir
+# set files [glob -nocomplain "$outputDir/*"]
+# if {[llength $files] != 0} {
+#     # clear folder contents
+#     puts "deleting contents of $outputDir"
+#     file delete -force {*}[glob -directory $outputDir *];
+# } else {
+#     puts "$outputDir is empty"
+# }
+deleting contents of obj
+# read_verilog -sv [ glob ./hdl/*.sv ]
+# read_verilog  [ glob ./hdl/*.v ]
+# read_xdc ./xdc/top_level.xdc
+# set_part $partNum
+INFO: [Coretcl 2-1500] The part has been set to 'xc7s50csga324-1' for the current project only. Run set_part -help for more details. To evaluate different speed grades in the current design, use the set_speed_grade command, or use the open_checkpoint -part command to change the part used by an existing checkpoint design.
+# synth_design -top top_level -part $partNum -verbose
+Command: synth_design -top top_level -part xc7s50csga324-1 -verbose
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7s50'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s50'
+INFO: [Device 21-403] Loading part xc7s50csga324-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 1348
+WARNING: [Synth 8-11065] parameter 'EXP_OBS_OUT_I' becomes localparam in 'bmu' with formal parameter declaration list [/home/fpga/hdl/bmu.sv:20]
+WARNING: [Synth 8-11065] parameter 'EXP_OBS_OUT_Q' becomes localparam in 'bmu' with formal parameter declaration list [/home/fpga/hdl/bmu.sv:21]
+WARNING: [Synth 8-6901] identifier 'NUM_STATES' is used before its declaration [/home/fpga/hdl/tbu.sv:7]
+WARNING: [Synth 8-6901] identifier 'NUM_STATES' is used before its declaration [/home/fpga/hdl/tbu.sv:8]
+WARNING: [Synth 8-6901] identifier 'row_ind' is used before its declaration [/home/fpga/hdl/tbu.sv:457]
+WARNING: [Synth 8-6901] identifier 'prev_state' is used before its declaration [/home/fpga/hdl/viterbi.sv:30]
+WARNING: [Synth 8-6901] identifier 'desc' is used before its declaration [/home/fpga/hdl/viterbi.sv:31]
+WARNING: [Synth 8-6901] identifier 'valid_out' is used before its declaration [/home/fpga/hdl/viterbi.sv:32]
+WARNING: [Synth 8-6901] identifier 'sm' is used before its declaration [/home/fpga/hdl/viterbi.sv:33]
+WARNING: [Synth 8-6901] identifier 'met_out' is used before its declaration [/home/fpga/hdl/viterbi.sv:34]
+WARNING: [Synth 8-6901] identifier 'sm' is used before its declaration [/home/fpga/hdl/viterbi.sv:37]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:04 . Memory (MB): peak = 1987.434 ; gain = 378.699 ; free physical = 3193 ; free virtual = 8853
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'top_level' [/home/fpga/hdl/top_level.sv:4]
+INFO: [Synth 8-6157] synthesizing module 'manta' [/home/fpga/hdl/manta.sv:28]
+INFO: [Synth 8-6157] synthesizing module 'uart_rx' [/home/fpga/hdl/manta.sv:127]
+	Parameter CLOCKS_PER_BAUD bound to: 33 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'uart_rx' (0#1) [/home/fpga/hdl/manta.sv:127]
+INFO: [Synth 8-6157] synthesizing module 'bridge_rx' [/home/fpga/hdl/manta.sv:181]
+INFO: [Synth 8-6155] done synthesizing module 'bridge_rx' (0#1) [/home/fpga/hdl/manta.sv:181]
+INFO: [Synth 8-6157] synthesizing module 'lab8_io_core' [/home/fpga/hdl/manta.sv:326]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/fpga/hdl/manta.sv:399]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/fpga/hdl/manta.sv:413]
+INFO: [Synth 8-6155] done synthesizing module 'lab8_io_core' (0#1) [/home/fpga/hdl/manta.sv:326]
+INFO: [Synth 8-6157] synthesizing module 'bridge_tx' [/home/fpga/hdl/manta.sv:426]
+INFO: [Synth 8-6155] done synthesizing module 'bridge_tx' (0#1) [/home/fpga/hdl/manta.sv:426]
+INFO: [Synth 8-6157] synthesizing module 'uart_tx' [/home/fpga/hdl/manta.sv:492]
+	Parameter CLOCKS_PER_BAUD bound to: 33 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'uart_tx' (0#1) [/home/fpga/hdl/manta.sv:492]
+INFO: [Synth 8-6155] done synthesizing module 'manta' (0#1) [/home/fpga/hdl/manta.sv:28]
+INFO: [Synth 8-6157] synthesizing module 'viterbi' [/home/fpga/hdl/viterbi.sv:6]
+INFO: [Synth 8-6157] synthesizing module 'bmu' [/home/fpga/hdl/bmu.sv:7]
+	Parameter EXP_OBS_OUT bound to: 0 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'bmu' (0#1) [/home/fpga/hdl/bmu.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'bmu__parameterized0' [/home/fpga/hdl/bmu.sv:7]
+	Parameter EXP_OBS_OUT bound to: 1 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'bmu__parameterized0' (0#1) [/home/fpga/hdl/bmu.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'bmu__parameterized1' [/home/fpga/hdl/bmu.sv:7]
+	Parameter EXP_OBS_OUT bound to: 2 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'bmu__parameterized1' (0#1) [/home/fpga/hdl/bmu.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'bmu__parameterized2' [/home/fpga/hdl/bmu.sv:7]
+	Parameter EXP_OBS_OUT bound to: 3 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'bmu__parameterized2' (0#1) [/home/fpga/hdl/bmu.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'tbu' [/home/fpga/hdl/tbu.sv:4]
+INFO: [Synth 8-6157] synthesizing module 'xilinx_true_dual_port_read_first_2_clock_ram' [/home/fpga/hdl/xilinx_true_dual_port_read_first_2_clock_ram.v:10]
+	Parameter RAM_WIDTH bound to: 36 - type: integer 
+	Parameter RAM_DEPTH bound to: 512 - type: integer 
+	Parameter RAM_PERFORMANCE bound to: HIGH_PERFORMANCE - type: string 
+INFO: [Synth 8-6155] done synthesizing module 'xilinx_true_dual_port_read_first_2_clock_ram' (0#1) [/home/fpga/hdl/xilinx_true_dual_port_read_first_2_clock_ram.v:10]
+INFO: [Synth 8-6157] synthesizing module 'read_ptr' [/home/fpga/hdl/tbu.sv:407]
+	Parameter IND_START bound to: 60 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [/home/fpga/hdl/tbu.sv:535]
+INFO: [Synth 8-6155] done synthesizing module 'read_ptr' (0#1) [/home/fpga/hdl/tbu.sv:407]
+INFO: [Synth 8-6157] synthesizing module 'read_ptr__parameterized0' [/home/fpga/hdl/tbu.sv:407]
+	Parameter IND_START bound to: 30 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [/home/fpga/hdl/tbu.sv:535]
+INFO: [Synth 8-6155] done synthesizing module 'read_ptr__parameterized0' (0#1) [/home/fpga/hdl/tbu.sv:407]
+INFO: [Synth 8-6155] done synthesizing module 'tbu' (0#1) [/home/fpga/hdl/tbu.sv:4]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 0 - type: integer 
+	Parameter STATE_0 bound to: 6'b000000 
+	Parameter STATE_1 bound to: 6'b000001 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized0' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 0 - type: integer 
+	Parameter STATE_0 bound to: 6'b000010 
+	Parameter STATE_1 bound to: 6'b000011 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized0' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized1' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 0 - type: integer 
+	Parameter STATE_0 bound to: 6'b000100 
+	Parameter STATE_1 bound to: 6'b000101 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized1' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized2' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 0 - type: integer 
+	Parameter STATE_0 bound to: 6'b000110 
+	Parameter STATE_1 bound to: 6'b000111 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized2' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized3' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 0 - type: integer 
+	Parameter STATE_0 bound to: 6'b001000 
+	Parameter STATE_1 bound to: 6'b001001 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized3' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized4' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 0 - type: integer 
+	Parameter STATE_0 bound to: 6'b001010 
+	Parameter STATE_1 bound to: 6'b001011 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized4' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized5' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 0 - type: integer 
+	Parameter STATE_0 bound to: 6'b001100 
+	Parameter STATE_1 bound to: 6'b001101 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized5' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized6' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 0 - type: integer 
+	Parameter STATE_0 bound to: 6'b001110 
+	Parameter STATE_1 bound to: 6'b001111 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized6' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized7' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 0 - type: integer 
+	Parameter STATE_0 bound to: 6'b010000 
+	Parameter STATE_1 bound to: 6'b010001 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized7' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized8' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 0 - type: integer 
+	Parameter STATE_0 bound to: 6'b010010 
+	Parameter STATE_1 bound to: 6'b010011 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized8' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized9' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 0 - type: integer 
+	Parameter STATE_0 bound to: 6'b010100 
+	Parameter STATE_1 bound to: 6'b010101 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized9' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized10' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 0 - type: integer 
+	Parameter STATE_0 bound to: 6'b010110 
+	Parameter STATE_1 bound to: 6'b010111 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized10' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized11' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 0 - type: integer 
+	Parameter STATE_0 bound to: 6'b011000 
+	Parameter STATE_1 bound to: 6'b011001 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized11' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized12' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 0 - type: integer 
+	Parameter STATE_0 bound to: 6'b011010 
+	Parameter STATE_1 bound to: 6'b011011 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized12' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized13' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 0 - type: integer 
+	Parameter STATE_0 bound to: 6'b011100 
+	Parameter STATE_1 bound to: 6'b011101 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized13' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized14' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 0 - type: integer 
+	Parameter STATE_0 bound to: 6'b011110 
+	Parameter STATE_1 bound to: 6'b011111 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized14' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized15' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 0 - type: integer 
+	Parameter STATE_0 bound to: 6'b100000 
+	Parameter STATE_1 bound to: 6'b100001 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized15' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized16' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 0 - type: integer 
+	Parameter STATE_0 bound to: 6'b100010 
+	Parameter STATE_1 bound to: 6'b100011 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized16' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized17' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 0 - type: integer 
+	Parameter STATE_0 bound to: 6'b100100 
+	Parameter STATE_1 bound to: 6'b100101 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized17' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized18' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 0 - type: integer 
+	Parameter STATE_0 bound to: 6'b100110 
+	Parameter STATE_1 bound to: 6'b100111 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized18' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized19' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 0 - type: integer 
+	Parameter STATE_0 bound to: 6'b101000 
+	Parameter STATE_1 bound to: 6'b101001 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized19' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized20' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 0 - type: integer 
+	Parameter STATE_0 bound to: 6'b101010 
+	Parameter STATE_1 bound to: 6'b101011 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized20' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized21' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 0 - type: integer 
+	Parameter STATE_0 bound to: 6'b101100 
+	Parameter STATE_1 bound to: 6'b101101 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized21' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized22' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 0 - type: integer 
+	Parameter STATE_0 bound to: 6'b101110 
+	Parameter STATE_1 bound to: 6'b101111 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized22' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized23' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 0 - type: integer 
+	Parameter STATE_0 bound to: 6'b110000 
+	Parameter STATE_1 bound to: 6'b110001 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized23' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized24' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 0 - type: integer 
+	Parameter STATE_0 bound to: 6'b110010 
+	Parameter STATE_1 bound to: 6'b110011 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized24' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized25' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 0 - type: integer 
+	Parameter STATE_0 bound to: 6'b110100 
+	Parameter STATE_1 bound to: 6'b110101 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized25' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized26' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 0 - type: integer 
+	Parameter STATE_0 bound to: 6'b110110 
+	Parameter STATE_1 bound to: 6'b110111 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized26' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized27' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 0 - type: integer 
+	Parameter STATE_0 bound to: 6'b111000 
+	Parameter STATE_1 bound to: 6'b111001 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized27' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized28' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 0 - type: integer 
+	Parameter STATE_0 bound to: 6'b111010 
+	Parameter STATE_1 bound to: 6'b111011 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized28' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized29' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 0 - type: integer 
+	Parameter STATE_0 bound to: 6'b111100 
+	Parameter STATE_1 bound to: 6'b111101 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized29' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized30' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 0 - type: integer 
+	Parameter STATE_0 bound to: 6'b111110 
+	Parameter STATE_1 bound to: 6'b111111 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized30' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized31' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 1 - type: integer 
+	Parameter STATE_0 bound to: 6'b000000 
+	Parameter STATE_1 bound to: 6'b000001 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized31' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized32' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 1 - type: integer 
+	Parameter STATE_0 bound to: 6'b000010 
+	Parameter STATE_1 bound to: 6'b000011 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized32' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized33' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 1 - type: integer 
+	Parameter STATE_0 bound to: 6'b000100 
+	Parameter STATE_1 bound to: 6'b000101 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized33' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized34' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 1 - type: integer 
+	Parameter STATE_0 bound to: 6'b000110 
+	Parameter STATE_1 bound to: 6'b000111 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized34' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized35' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 1 - type: integer 
+	Parameter STATE_0 bound to: 6'b001000 
+	Parameter STATE_1 bound to: 6'b001001 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized35' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized36' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 1 - type: integer 
+	Parameter STATE_0 bound to: 6'b001010 
+	Parameter STATE_1 bound to: 6'b001011 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized36' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized37' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 1 - type: integer 
+	Parameter STATE_0 bound to: 6'b001100 
+	Parameter STATE_1 bound to: 6'b001101 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized37' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized38' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 1 - type: integer 
+	Parameter STATE_0 bound to: 6'b001110 
+	Parameter STATE_1 bound to: 6'b001111 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized38' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized39' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 1 - type: integer 
+	Parameter STATE_0 bound to: 6'b010000 
+	Parameter STATE_1 bound to: 6'b010001 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized39' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized40' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 1 - type: integer 
+	Parameter STATE_0 bound to: 6'b010010 
+	Parameter STATE_1 bound to: 6'b010011 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized40' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized41' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 1 - type: integer 
+	Parameter STATE_0 bound to: 6'b010100 
+	Parameter STATE_1 bound to: 6'b010101 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized41' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized42' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 1 - type: integer 
+	Parameter STATE_0 bound to: 6'b010110 
+	Parameter STATE_1 bound to: 6'b010111 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized42' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized43' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 1 - type: integer 
+	Parameter STATE_0 bound to: 6'b011000 
+	Parameter STATE_1 bound to: 6'b011001 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized43' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized44' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 1 - type: integer 
+	Parameter STATE_0 bound to: 6'b011010 
+	Parameter STATE_1 bound to: 6'b011011 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized44' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized45' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 1 - type: integer 
+	Parameter STATE_0 bound to: 6'b011100 
+	Parameter STATE_1 bound to: 6'b011101 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized45' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized46' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 1 - type: integer 
+	Parameter STATE_0 bound to: 6'b011110 
+	Parameter STATE_1 bound to: 6'b011111 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized46' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized47' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 1 - type: integer 
+	Parameter STATE_0 bound to: 6'b100000 
+	Parameter STATE_1 bound to: 6'b100001 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized47' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized48' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 1 - type: integer 
+	Parameter STATE_0 bound to: 6'b100010 
+	Parameter STATE_1 bound to: 6'b100011 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized48' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized49' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 1 - type: integer 
+	Parameter STATE_0 bound to: 6'b100100 
+	Parameter STATE_1 bound to: 6'b100101 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized49' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized50' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 1 - type: integer 
+	Parameter STATE_0 bound to: 6'b100110 
+	Parameter STATE_1 bound to: 6'b100111 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized50' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized51' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 1 - type: integer 
+	Parameter STATE_0 bound to: 6'b101000 
+	Parameter STATE_1 bound to: 6'b101001 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized51' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized52' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 1 - type: integer 
+	Parameter STATE_0 bound to: 6'b101010 
+	Parameter STATE_1 bound to: 6'b101011 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized52' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized53' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 1 - type: integer 
+	Parameter STATE_0 bound to: 6'b101100 
+	Parameter STATE_1 bound to: 6'b101101 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized53' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized54' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 1 - type: integer 
+	Parameter STATE_0 bound to: 6'b101110 
+	Parameter STATE_1 bound to: 6'b101111 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized54' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized55' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 1 - type: integer 
+	Parameter STATE_0 bound to: 6'b110000 
+	Parameter STATE_1 bound to: 6'b110001 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized55' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized56' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 1 - type: integer 
+	Parameter STATE_0 bound to: 6'b110010 
+	Parameter STATE_1 bound to: 6'b110011 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized56' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized57' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 1 - type: integer 
+	Parameter STATE_0 bound to: 6'b110100 
+	Parameter STATE_1 bound to: 6'b110101 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized57' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized58' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 1 - type: integer 
+	Parameter STATE_0 bound to: 6'b110110 
+	Parameter STATE_1 bound to: 6'b110111 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized58' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized59' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 1 - type: integer 
+	Parameter STATE_0 bound to: 6'b111000 
+	Parameter STATE_1 bound to: 6'b111001 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized59' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized60' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 1 - type: integer 
+	Parameter STATE_0 bound to: 6'b111010 
+	Parameter STATE_1 bound to: 6'b111011 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized60' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized61' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 1 - type: integer 
+	Parameter STATE_0 bound to: 6'b111100 
+	Parameter STATE_1 bound to: 6'b111101 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized61' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'acs_butterfly__parameterized62' [/home/fpga/hdl/acs_but.sv:7]
+	Parameter TRANSITION_BIT bound to: 1 - type: integer 
+	Parameter STATE_0 bound to: 6'b111110 
+	Parameter STATE_1 bound to: 6'b111111 
+INFO: [Synth 8-6155] done synthesizing module 'acs_butterfly__parameterized62' (0#1) [/home/fpga/hdl/acs_but.sv:7]
+INFO: [Synth 8-6155] done synthesizing module 'viterbi' (0#1) [/home/fpga/hdl/viterbi.sv:6]
+INFO: [Synth 8-6155] done synthesizing module 'top_level' (0#1) [/home/fpga/hdl/top_level.sv:4]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-6014] Unused sequential element pm_0_reg was removed.  [/home/fpga/hdl/acs_but.sv:39]
+WARNING: [Synth 8-6014] Unused sequential element pm_1_reg was removed.  [/home/fpga/hdl/acs_but.sv:40]
+WARNING: [Synth 8-3848] Net led in module/entity top_level does not have driver. [/home/fpga/hdl/top_level.sv:9]
+WARNING: [Synth 8-3917] design top_level has port rgb0[2] driven by constant 0
+WARNING: [Synth 8-3917] design top_level has port rgb0[1] driven by constant 0
+WARNING: [Synth 8-3917] design top_level has port rgb0[0] driven by constant 0
+WARNING: [Synth 8-3917] design top_level has port rgb1[2] driven by constant 0
+WARNING: [Synth 8-3917] design top_level has port rgb1[1] driven by constant 0
+WARNING: [Synth 8-3917] design top_level has port rgb1[0] driven by constant 0
+WARNING: [Synth 8-7129] Port dout_0[35] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_0[34] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_0[33] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_0[32] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_0[31] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_0[30] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_0[29] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_0[28] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_1[35] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_1[34] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_1[33] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_1[32] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_1[31] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_1[30] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_1[29] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_1[28] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_2[35] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_2[34] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_2[33] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_2[32] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_2[31] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_2[30] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_2[29] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_2[28] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_3[35] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_3[34] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_3[33] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_3[32] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_3[31] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_3[30] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_3[29] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_3[28] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_4[35] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_4[34] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_4[33] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_4[32] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_4[31] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_4[30] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_4[29] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_4[28] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_5[35] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_5[34] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_5[33] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_5[32] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_5[31] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_5[30] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_5[29] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_5[28] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_6[35] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_6[34] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_6[33] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_6[32] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_6[31] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_6[30] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_6[29] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_6[28] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_7[35] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_7[34] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_7[33] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_7[32] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_7[31] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_7[30] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_7[29] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_7[28] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_8[35] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_8[34] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_8[33] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_8[32] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_8[31] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_8[30] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_8[29] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_8[28] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_9[35] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_9[34] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_9[33] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_9[32] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_9[31] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_9[30] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_9[29] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_9[28] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_10[35] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_10[34] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_10[33] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_10[32] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_10[31] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_10[30] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_10[29] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_10[28] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_11[35] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_11[34] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_11[33] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_11[32] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_11[31] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_11[30] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_11[29] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_11[28] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_12[35] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_12[34] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_12[33] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_12[32] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_12[31] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_12[30] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_12[29] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_12[28] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_13[35] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_13[34] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_13[33] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_13[32] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_13[31] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_13[30] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_13[29] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_13[28] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_14[35] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_14[34] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_14[33] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_14[32] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_14[31] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_14[30] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_14[29] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_14[28] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_15[35] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_15[34] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_15[33] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_15[32] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_15[31] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_15[30] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_15[29] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_15[28] in module read_ptr__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_0[35] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_0[34] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_0[33] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_0[32] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_0[31] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_0[30] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_0[29] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_0[28] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_1[35] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_1[34] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_1[33] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_1[32] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_1[31] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_1[30] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_1[29] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_1[28] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_2[35] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_2[34] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_2[33] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_2[32] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_2[31] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_2[30] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_2[29] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_2[28] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_3[35] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_3[34] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_3[33] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_3[32] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_3[31] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_3[30] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_3[29] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_3[28] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_4[35] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_4[34] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_4[33] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_4[32] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_4[31] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_4[30] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_4[29] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_4[28] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_5[35] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_5[34] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_5[33] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_5[32] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_5[31] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_5[30] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_5[29] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_5[28] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_6[35] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_6[34] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_6[33] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_6[32] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_6[31] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_6[30] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_6[29] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_6[28] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_7[35] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_7[34] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_7[33] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_7[32] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_7[31] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_7[30] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_7[29] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_7[28] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_8[35] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_8[34] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_8[33] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_8[32] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_8[31] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_8[30] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_8[29] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_8[28] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_9[35] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_9[34] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_9[33] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_9[32] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_9[31] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_9[30] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_9[29] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_9[28] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_10[35] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_10[34] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_10[33] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_10[32] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_10[31] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_10[30] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_10[29] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_10[28] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_11[35] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_11[34] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_11[33] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_11[32] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_11[31] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_11[30] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_11[29] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_11[28] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_12[35] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_12[34] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_12[33] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_12[32] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_12[31] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_12[30] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_12[29] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_12[28] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_13[35] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_13[34] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_13[33] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_13[32] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_13[31] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_13[30] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_13[29] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_13[28] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_14[35] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_14[34] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_14[33] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_14[32] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_14[31] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_14[30] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_14[29] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_14[28] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_15[35] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_15[34] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_15[33] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_15[32] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_15[31] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_15[30] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_15[29] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout_15[28] in module read_ptr is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module bmu__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sys_rst in module bmu__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module bmu__parameterized1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sys_rst in module bmu__parameterized1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module bmu__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sys_rst in module bmu__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module bmu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sys_rst in module bmu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[15] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[14] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[13] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[12] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[11] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[10] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[9] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[8] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[7] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[6] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[5] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[4] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[3] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[2] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[1] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[0] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[15] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[14] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[13] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[12] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[11] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[10] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[9] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[8] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[7] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[6] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[5] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[4] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[3] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[2] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[1] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[0] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port btn[3] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port btn[2] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port btn[1] in module top_level is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 2101.371 ; gain = 492.637 ; free physical = 3016 ; free virtual = 8681
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 2119.184 ; gain = 510.449 ; free physical = 3013 ; free virtual = 8678
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 2119.184 ; gain = 510.449 ; free physical = 3013 ; free virtual = 8678
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.1 . Memory (MB): peak = 2119.184 ; gain = 0.000 ; free physical = 3013 ; free virtual = 8678
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/fpga/xdc/top_level.xdc]
+Finished Parsing XDC File [/home/fpga/xdc/top_level.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/fpga/xdc/top_level.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_level_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/top_level_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2202.906 ; gain = 0.000 ; free physical = 2969 ; free virtual = 8654
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2202.906 ; gain = 0.000 ; free physical = 2969 ; free virtual = 8654
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:07 ; elapsed = 00:00:11 . Memory (MB): peak = 2202.906 ; gain = 594.172 ; free physical = 2966 ; free virtual = 8653
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7s50csga324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:07 ; elapsed = 00:00:11 . Memory (MB): peak = 2202.906 ; gain = 594.172 ; free physical = 2966 ; free virtual = 8653
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:11 . Memory (MB): peak = 2202.906 ; gain = 594.172 ; free physical = 2966 ; free virtual = 8653
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'bridge_rx'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'read_ptr'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'read_ptr__parameterized0'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 iSTATE1 |                             0001 |                               00
+                 iSTATE0 |                             0010 |                               10
+                  iSTATE |                             0100 |                               01
+*
+                 iSTATE2 |                             1000 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'bridge_rx'
+INFO: [Synth 8-3971] The signal "xilinx_true_dual_port_read_first_2_clock_ram:/BRAM_reg" was recognized as a true dual port RAM template.
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                              001 | 00000000000000000000000000000000
+               TRACEBACK |                              010 | 00000000000000000000000000000001
+                    READ |                              100 | 00000000000000000000000000000010
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'read_ptr'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                              001 | 00000000000000000000000000000000
+               TRACEBACK |                              010 | 00000000000000000000000000000001
+                    READ |                              100 | 00000000000000000000000000000010
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'read_ptr__parameterized0'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:12 . Memory (MB): peak = 2202.906 ; gain = 594.172 ; free physical = 2965 ; free virtual = 8653
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   21 Bit       Adders := 64    
+	   2 Input   20 Bit       Adders := 128   
+	   2 Input   16 Bit       Adders := 1     
+	   2 Input    8 Bit       Adders := 2     
+	   2 Input    7 Bit       Adders := 5     
+	   2 Input    6 Bit       Adders := 1     
+	   2 Input    5 Bit       Adders := 7     
+	   2 Input    4 Bit       Adders := 11    
+	   2 Input    3 Bit       Adders := 1     
+	   2 Input    1 Bit       Adders := 2     
++---Registers : 
+	               36 Bit    Registers := 144   
+	               20 Bit    Registers := 128   
+	               16 Bit    Registers := 6     
+	                9 Bit    Registers := 1     
+	                8 Bit    Registers := 12    
+	                7 Bit    Registers := 7     
+	                6 Bit    Registers := 70    
+	                5 Bit    Registers := 6     
+	                4 Bit    Registers := 3     
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 169   
++---RAMs : 
+	              18K Bit	(512 X 36 bit)          RAMs := 32    
+	              180 Bit	(30 X 6 bit)          RAMs := 1     
+	               30 Bit	(30 X 1 bit)          RAMs := 1     
++---Muxes : 
+	   2 Input   20 Bit        Muxes := 256   
+	   2 Input   16 Bit        Muxes := 11    
+	   3 Input   16 Bit        Muxes := 1     
+	   2 Input    7 Bit        Muxes := 10    
+	   3 Input    7 Bit        Muxes := 2     
+	   4 Input    7 Bit        Muxes := 2     
+	   2 Input    6 Bit        Muxes := 135   
+	   3 Input    6 Bit        Muxes := 32    
+	   4 Input    6 Bit        Muxes := 2     
+	   2 Input    5 Bit        Muxes := 28    
+	   3 Input    5 Bit        Muxes := 18    
+	   2 Input    4 Bit        Muxes := 32    
+	   3 Input    4 Bit        Muxes := 9     
+	  13 Input    4 Bit        Muxes := 1     
+	   2 Input    3 Bit        Muxes := 10    
+	   3 Input    3 Bit        Muxes := 6     
+	   2 Input    2 Bit        Muxes := 13    
+	   3 Input    2 Bit        Muxes := 2     
+	   2 Input    1 Bit        Muxes := 109   
+	   3 Input    1 Bit        Muxes := 16    
+	   4 Input    1 Bit        Muxes := 2     
+	   5 Input    1 Bit        Muxes := 4     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 120 (col length:60)
+BRAMs: 150 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+DSP Debug: swapped A/B pins for adder 0x2821e060
+DSP Debug: swapped A/B pins for adder 0x35c6a960
+DSP Debug: swapped A/B pins for adder 0x29fed740
+DSP Debug: swapped A/B pins for adder 0x29f6fd40
+DSP Debug: swapped A/B pins for adder 0x29fed740
+DSP Debug: swapped A/B pins for adder 0x2821e060
+DSP Debug: swapped A/B pins for adder 0x29fed740
+DSP Debug: swapped A/B pins for adder 0x28119ec0
+DSP Debug: swapped A/B pins for adder 0x290d2360
+DSP Debug: swapped A/B pins for adder 0x28119ec0
+DSP Debug: swapped A/B pins for adder 0x2818c3c0
+DSP Debug: swapped A/B pins for adder 0x290d2360
+DSP Debug: swapped A/B pins for adder 0x2818c600
+DSP Debug: swapped A/B pins for adder 0x2818c3c0
+WARNING: [Synth 8-3917] design top_level has port rgb0[2] driven by constant 0
+WARNING: [Synth 8-3917] design top_level has port rgb0[1] driven by constant 0
+WARNING: [Synth 8-3917] design top_level has port rgb0[0] driven by constant 0
+WARNING: [Synth 8-3917] design top_level has port rgb1[2] driven by constant 0
+WARNING: [Synth 8-3917] design top_level has port rgb1[1] driven by constant 0
+WARNING: [Synth 8-3917] design top_level has port rgb1[0] driven by constant 0
+WARNING: [Synth 8-7129] Port led[15] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[14] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[13] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[12] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[11] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[10] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[9] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[8] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[7] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[6] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[5] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[4] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[3] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[2] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[1] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[0] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[15] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[14] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[13] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[12] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[11] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[10] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[9] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[8] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[7] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[6] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[5] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[4] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[3] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[2] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[1] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[0] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port btn[3] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port btn[2] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-7129] Port btn[1] in module top_level is either unconnected or has no load
+WARNING: [Synth 8-6014] Unused sequential element rows_0[0].store_row/BRAM_reg was removed. 
+INFO: [Synth 8-5784] Optimized 8 bits of RAM "rows_0[0].store_row/BRAM_reg" due to constant propagation. Old ram width 36 bits, new ram width 28 bits.
+WARNING: [Synth 8-6014] Unused sequential element rows_0[1].store_row/BRAM_reg was removed. 
+INFO: [Synth 8-5784] Optimized 8 bits of RAM "rows_0[1].store_row/BRAM_reg" due to constant propagation. Old ram width 36 bits, new ram width 28 bits.
+WARNING: [Synth 8-6014] Unused sequential element rows_0[2].store_row/BRAM_reg was removed. 
+INFO: [Synth 8-5784] Optimized 8 bits of RAM "rows_0[2].store_row/BRAM_reg" due to constant propagation. Old ram width 36 bits, new ram width 28 bits.
+WARNING: [Synth 8-6014] Unused sequential element rows_0[3].store_row/BRAM_reg was removed. 
+INFO: [Synth 8-5784] Optimized 8 bits of RAM "rows_0[3].store_row/BRAM_reg" due to constant propagation. Old ram width 36 bits, new ram width 28 bits.
+WARNING: [Synth 8-6014] Unused sequential element rows_0[4].store_row/BRAM_reg was removed. 
+INFO: [Synth 8-5784] Optimized 8 bits of RAM "rows_0[4].store_row/BRAM_reg" due to constant propagation. Old ram width 36 bits, new ram width 28 bits.
+WARNING: [Synth 8-6014] Unused sequential element rows_0[5].store_row/BRAM_reg was removed. 
+INFO: [Synth 8-5784] Optimized 8 bits of RAM "rows_0[5].store_row/BRAM_reg" due to constant propagation. Old ram width 36 bits, new ram width 28 bits.
+WARNING: [Synth 8-6014] Unused sequential element rows_0[6].store_row/BRAM_reg was removed. 
+INFO: [Synth 8-5784] Optimized 8 bits of RAM "rows_0[6].store_row/BRAM_reg" due to constant propagation. Old ram width 36 bits, new ram width 28 bits.
+WARNING: [Synth 8-6014] Unused sequential element rows_0[7].store_row/BRAM_reg was removed. 
+INFO: [Synth 8-5784] Optimized 8 bits of RAM "rows_0[7].store_row/BRAM_reg" due to constant propagation. Old ram width 36 bits, new ram width 28 bits.
+WARNING: [Synth 8-6014] Unused sequential element rows_0[8].store_row/BRAM_reg was removed. 
+INFO: [Synth 8-5784] Optimized 8 bits of RAM "rows_0[8].store_row/BRAM_reg" due to constant propagation. Old ram width 36 bits, new ram width 28 bits.
+WARNING: [Synth 8-6014] Unused sequential element rows_0[9].store_row/BRAM_reg was removed. 
+INFO: [Synth 8-5784] Optimized 8 bits of RAM "rows_0[9].store_row/BRAM_reg" due to constant propagation. Old ram width 36 bits, new ram width 28 bits.
+WARNING: [Synth 8-6014] Unused sequential element rows_0[10].store_row/BRAM_reg was removed. 
+INFO: [Synth 8-5784] Optimized 8 bits of RAM "rows_0[10].store_row/BRAM_reg" due to constant propagation. Old ram width 36 bits, new ram width 28 bits.
+WARNING: [Synth 8-6014] Unused sequential element rows_0[11].store_row/BRAM_reg was removed. 
+INFO: [Synth 8-5784] Optimized 8 bits of RAM "rows_0[11].store_row/BRAM_reg" due to constant propagation. Old ram width 36 bits, new ram width 28 bits.
+WARNING: [Synth 8-6014] Unused sequential element rows_0[12].store_row/BRAM_reg was removed. 
+INFO: [Synth 8-5784] Optimized 8 bits of RAM "rows_0[12].store_row/BRAM_reg" due to constant propagation. Old ram width 36 bits, new ram width 28 bits.
+WARNING: [Synth 8-6014] Unused sequential element rows_0[13].store_row/BRAM_reg was removed. 
+INFO: [Synth 8-5784] Optimized 8 bits of RAM "rows_0[13].store_row/BRAM_reg" due to constant propagation. Old ram width 36 bits, new ram width 28 bits.
+WARNING: [Synth 8-6014] Unused sequential element rows_0[14].store_row/BRAM_reg was removed. 
+INFO: [Synth 8-5784] Optimized 8 bits of RAM "rows_0[14].store_row/BRAM_reg" due to constant propagation. Old ram width 36 bits, new ram width 28 bits.
+WARNING: [Synth 8-6014] Unused sequential element rows_0[15].store_row/BRAM_reg was removed. 
+INFO: [Synth 8-5784] Optimized 8 bits of RAM "rows_0[15].store_row/BRAM_reg" due to constant propagation. Old ram width 36 bits, new ram width 28 bits.
+WARNING: [Synth 8-6014] Unused sequential element rows_1[0].store_row/BRAM_reg was removed. 
+INFO: [Synth 8-5784] Optimized 8 bits of RAM "rows_1[0].store_row/BRAM_reg" due to constant propagation. Old ram width 36 bits, new ram width 28 bits.
+WARNING: [Synth 8-6014] Unused sequential element rows_1[1].store_row/BRAM_reg was removed. 
+INFO: [Synth 8-5784] Optimized 8 bits of RAM "rows_1[1].store_row/BRAM_reg" due to constant propagation. Old ram width 36 bits, new ram width 28 bits.
+WARNING: [Synth 8-6014] Unused sequential element rows_1[2].store_row/BRAM_reg was removed. 
+INFO: [Synth 8-5784] Optimized 8 bits of RAM "rows_1[2].store_row/BRAM_reg" due to constant propagation. Old ram width 36 bits, new ram width 28 bits.
+WARNING: [Synth 8-6014] Unused sequential element rows_1[3].store_row/BRAM_reg was removed. 
+INFO: [Synth 8-5784] Optimized 8 bits of RAM "rows_1[3].store_row/BRAM_reg" due to constant propagation. Old ram width 36 bits, new ram width 28 bits.
+WARNING: [Synth 8-6014] Unused sequential element rows_1[4].store_row/BRAM_reg was removed. 
+INFO: [Synth 8-5784] Optimized 8 bits of RAM "rows_1[4].store_row/BRAM_reg" due to constant propagation. Old ram width 36 bits, new ram width 28 bits.
+WARNING: [Synth 8-6014] Unused sequential element rows_1[5].store_row/BRAM_reg was removed. 
+INFO: [Synth 8-5784] Optimized 8 bits of RAM "rows_1[5].store_row/BRAM_reg" due to constant propagation. Old ram width 36 bits, new ram width 28 bits.
+WARNING: [Synth 8-6014] Unused sequential element rows_1[6].store_row/BRAM_reg was removed. 
+INFO: [Synth 8-5784] Optimized 8 bits of RAM "rows_1[6].store_row/BRAM_reg" due to constant propagation. Old ram width 36 bits, new ram width 28 bits.
+WARNING: [Synth 8-6014] Unused sequential element rows_1[7].store_row/BRAM_reg was removed. 
+INFO: [Synth 8-5784] Optimized 8 bits of RAM "rows_1[7].store_row/BRAM_reg" due to constant propagation. Old ram width 36 bits, new ram width 28 bits.
+WARNING: [Synth 8-6014] Unused sequential element rows_1[8].store_row/BRAM_reg was removed. 
+INFO: [Synth 8-5784] Optimized 8 bits of RAM "rows_1[8].store_row/BRAM_reg" due to constant propagation. Old ram width 36 bits, new ram width 28 bits.
+WARNING: [Synth 8-6014] Unused sequential element rows_1[9].store_row/BRAM_reg was removed. 
+INFO: [Synth 8-5784] Optimized 8 bits of RAM "rows_1[9].store_row/BRAM_reg" due to constant propagation. Old ram width 36 bits, new ram width 28 bits.
+WARNING: [Synth 8-6014] Unused sequential element rows_1[10].store_row/BRAM_reg was removed. 
+INFO: [Synth 8-5784] Optimized 8 bits of RAM "rows_1[10].store_row/BRAM_reg" due to constant propagation. Old ram width 36 bits, new ram width 28 bits.
+WARNING: [Synth 8-6014] Unused sequential element rows_1[11].store_row/BRAM_reg was removed. 
+INFO: [Synth 8-5784] Optimized 8 bits of RAM "rows_1[11].store_row/BRAM_reg" due to constant propagation. Old ram width 36 bits, new ram width 28 bits.
+WARNING: [Synth 8-6014] Unused sequential element rows_1[12].store_row/BRAM_reg was removed. 
+INFO: [Synth 8-5784] Optimized 8 bits of RAM "rows_1[12].store_row/BRAM_reg" due to constant propagation. Old ram width 36 bits, new ram width 28 bits.
+WARNING: [Synth 8-6014] Unused sequential element rows_1[13].store_row/BRAM_reg was removed. 
+INFO: [Synth 8-5784] Optimized 8 bits of RAM "rows_1[13].store_row/BRAM_reg" due to constant propagation. Old ram width 36 bits, new ram width 28 bits.
+WARNING: [Synth 8-6014] Unused sequential element rows_1[14].store_row/BRAM_reg was removed. 
+INFO: [Synth 8-5784] Optimized 8 bits of RAM "rows_1[14].store_row/BRAM_reg" due to constant propagation. Old ram width 36 bits, new ram width 28 bits.
+WARNING: [Synth 8-6014] Unused sequential element rows_1[15].store_row/BRAM_reg was removed. 
+INFO: [Synth 8-5784] Optimized 8 bits of RAM "rows_1[15].store_row/BRAM_reg" due to constant propagation. Old ram width 36 bits, new ram width 28 bits.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:21 . Memory (MB): peak = 2202.906 ; gain = 594.172 ; free physical = 2904 ; free virtual = 8614
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Preliminary Mapping Report (see note below)
++----------------+-------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name     | RTL Object                    | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++----------------+-------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|duti_2/tbu_inst | rows_0[0].store_row/BRAM_reg  | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_0[1].store_row/BRAM_reg  | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_0[2].store_row/BRAM_reg  | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_0[3].store_row/BRAM_reg  | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_0[4].store_row/BRAM_reg  | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_0[5].store_row/BRAM_reg  | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_0[6].store_row/BRAM_reg  | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_0[7].store_row/BRAM_reg  | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_0[8].store_row/BRAM_reg  | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_0[9].store_row/BRAM_reg  | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_0[10].store_row/BRAM_reg | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_0[11].store_row/BRAM_reg | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_0[12].store_row/BRAM_reg | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_0[13].store_row/BRAM_reg | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_0[14].store_row/BRAM_reg | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_0[15].store_row/BRAM_reg | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_1[0].store_row/BRAM_reg  | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_1[1].store_row/BRAM_reg  | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_1[2].store_row/BRAM_reg  | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_1[3].store_row/BRAM_reg  | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_1[4].store_row/BRAM_reg  | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_1[5].store_row/BRAM_reg  | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_1[6].store_row/BRAM_reg  | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_1[7].store_row/BRAM_reg  | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_1[8].store_row/BRAM_reg  | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_1[9].store_row/BRAM_reg  | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_1[10].store_row/BRAM_reg | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_1[11].store_row/BRAM_reg | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_1[12].store_row/BRAM_reg | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_1[13].store_row/BRAM_reg | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_1[14].store_row/BRAM_reg | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_1[15].store_row/BRAM_reg | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
++----------------+-------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+
+Distributed RAM: Preliminary Mapping Report (see note below)
++----------------+--------------------------+-----------+----------------------+---------------+
+|Module Name     | RTL Object               | Inference | Size (Depth x Width) | Primitives    | 
++----------------+--------------------------+-----------+----------------------+---------------+
+|duti_2/tbu_inst | filo_buff_vit_desc_reg   | Implied   | 32 x 1               | RAM16X1D x 2  | 
+|duti_2/tbu_inst | filo_buff_last_state_reg | Implied   | 32 x 1               | RAM32M x 1    | 
++----------------+--------------------------+-----------+----------------------+---------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:23 . Memory (MB): peak = 2202.906 ; gain = 594.172 ; free physical = 2894 ; free virtual = 8611
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:30 ; elapsed = 00:00:36 . Memory (MB): peak = 2202.906 ; gain = 594.172 ; free physical = 2894 ; free virtual = 8611
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Final Mapping Report
++----------------+-------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name     | RTL Object                    | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++----------------+-------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|duti_2/tbu_inst | rows_0[0].store_row/BRAM_reg  | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_0[1].store_row/BRAM_reg  | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_0[2].store_row/BRAM_reg  | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_0[3].store_row/BRAM_reg  | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_0[4].store_row/BRAM_reg  | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_0[5].store_row/BRAM_reg  | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_0[6].store_row/BRAM_reg  | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_0[7].store_row/BRAM_reg  | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_0[8].store_row/BRAM_reg  | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_0[9].store_row/BRAM_reg  | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_0[10].store_row/BRAM_reg | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_0[11].store_row/BRAM_reg | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_0[12].store_row/BRAM_reg | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_0[13].store_row/BRAM_reg | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_0[14].store_row/BRAM_reg | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_0[15].store_row/BRAM_reg | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_1[0].store_row/BRAM_reg  | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_1[1].store_row/BRAM_reg  | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_1[2].store_row/BRAM_reg  | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_1[3].store_row/BRAM_reg  | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_1[4].store_row/BRAM_reg  | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_1[5].store_row/BRAM_reg  | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_1[6].store_row/BRAM_reg  | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_1[7].store_row/BRAM_reg  | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_1[8].store_row/BRAM_reg  | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_1[9].store_row/BRAM_reg  | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_1[10].store_row/BRAM_reg | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_1[11].store_row/BRAM_reg | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_1[12].store_row/BRAM_reg | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_1[13].store_row/BRAM_reg | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_1[14].store_row/BRAM_reg | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|duti_2/tbu_inst | rows_1[15].store_row/BRAM_reg | 512 x 36(READ_FIRST)   | W |   | 512 x 36(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
++----------------+-------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+
+Distributed RAM: Final Mapping Report
++----------------+--------------------------+-----------+----------------------+---------------+
+|Module Name     | RTL Object               | Inference | Size (Depth x Width) | Primitives    | 
++----------------+--------------------------+-----------+----------------------+---------------+
+|duti_2/tbu_inst | filo_buff_vit_desc_reg   | Implied   | 32 x 1               | RAM16X1D x 2  | 
+|duti_2/tbu_inst | filo_buff_last_state_reg | Implied   | 32 x 1               | RAM32M x 1    | 
++----------------+--------------------------+-----------+----------------------+---------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:33 ; elapsed = 00:00:38 . Memory (MB): peak = 2210.906 ; gain = 602.172 ; free physical = 2884 ; free virtual = 8601
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:34 ; elapsed = 00:00:40 . Memory (MB): peak = 2210.906 ; gain = 602.172 ; free physical = 2883 ; free virtual = 8601
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:34 ; elapsed = 00:00:40 . Memory (MB): peak = 2210.906 ; gain = 602.172 ; free physical = 2883 ; free virtual = 8601
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:35 ; elapsed = 00:00:40 . Memory (MB): peak = 2210.906 ; gain = 602.172 ; free physical = 2883 ; free virtual = 8600
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:35 ; elapsed = 00:00:40 . Memory (MB): peak = 2210.906 ; gain = 602.172 ; free physical = 2883 ; free virtual = 8600
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:35 ; elapsed = 00:00:40 . Memory (MB): peak = 2210.906 ; gain = 602.172 ; free physical = 2883 ; free virtual = 8600
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:35 ; elapsed = 00:00:40 . Memory (MB): peak = 2210.906 ; gain = 602.172 ; free physical = 2883 ; free virtual = 8600
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |BUFG     |     1|
+|2     |CARRY4   |  1280|
+|3     |LUT1     |    33|
+|4     |LUT2     |  2618|
+|5     |LUT3     |   570|
+|6     |LUT4     |  2250|
+|7     |LUT5     |  1449|
+|8     |LUT6     |  1753|
+|9     |MUXF7    |   116|
+|10    |MUXF8    |    56|
+|11    |RAM16X1D |     2|
+|12    |RAM32X1D |     2|
+|13    |RAMB18E1 |    32|
+|14    |FDRE     |  3186|
+|15    |FDSE     |    17|
+|16    |IBUF     |     3|
+|17    |OBUF     |     7|
+|18    |OBUFT    |    16|
++------+---------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:35 ; elapsed = 00:00:40 . Memory (MB): peak = 2210.906 ; gain = 602.172 ; free physical = 2883 ; free virtual = 8600
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 74 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:33 ; elapsed = 00:00:38 . Memory (MB): peak = 2210.906 ; gain = 518.449 ; free physical = 2883 ; free virtual = 8600
+Synthesis Optimization Complete : Time (s): cpu = 00:00:35 ; elapsed = 00:00:40 . Memory (MB): peak = 2210.914 ; gain = 602.172 ; free physical = 2880 ; free virtual = 8600
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.04 . Memory (MB): peak = 2210.914 ; gain = 0.000 ; free physical = 3159 ; free virtual = 8880
+INFO: [Netlist 29-17] Analyzing 1488 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/fpga/xdc/top_level.xdc]
+Finished Parsing XDC File [/home/fpga/xdc/top_level.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2210.914 ; gain = 0.000 ; free physical = 3160 ; free virtual = 8881
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 4 instances were transformed.
+  RAM16X1D => RAM32X1D (RAMD32(x2)): 2 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 2 instances
+
+Synth Design complete | Checksum: 5e12a4e
+INFO: [Common 17-83] Releasing license: Synthesis
+218 Infos, 519 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:40 ; elapsed = 00:00:44 . Memory (MB): peak = 2210.914 ; gain = 917.211 ; free physical = 3161 ; free virtual = 8882
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2040.740; main = 1746.619; forked = 431.157
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3185.715; main = 2210.910; forked = 974.805
+# write_checkpoint -force $outputDir/post_synth.dcp
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2250.926 ; gain = 0.000 ; free physical = 3144 ; free virtual = 8882
+INFO: [Common 17-1381] The checkpoint '/home/fpga/obj/post_synth.dcp' has been generated.
+# report_timing_summary -file $outputDir/post_synth_timing_summary.rpt
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+# report_utilization -file $outputDir/post_synth_util.rpt
+# report_timing -file $outputDir/post_synth_timing.rpt
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: max.
+INFO: [Timing 38-78] ReportTimingParams: -max_paths 1 -nworst 1 -delay_type max -sort_by slack.
+# opt_design
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7s50'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7s50'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:00.2 ; elapsed = 00:00:00.23 . Memory (MB): peak = 2335.598 ; gain = 20.879 ; free physical = 3088 ; free virtual = 8829
+
+Starting Cache Timing Information Task
+Ending Cache Timing Information Task | Checksum: d4838976
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2335.598 ; gain = 0.000 ; free physical = 3088 ; free virtual = 8829
+
+Starting Logic Optimization Task
+
+Phase 1 Retarget
+INFO: [Opt 31-1566] Pulled 3 inverters resulting in an inversion of 15 pins
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 1 Retarget | Checksum: 9c7ef9df
+
+Time (s): cpu = 00:00:00.23 ; elapsed = 00:00:00.22 . Memory (MB): peak = 2550.598 ; gain = 0.000 ; free physical = 2852 ; free virtual = 8593
+INFO: [Opt 31-389] Phase Retarget created 0 cells and removed 3 cells
+
+Phase 2 Constant propagation
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Phase 2 Constant propagation | Checksum: 163cb61da
+
+Time (s): cpu = 00:00:00.28 ; elapsed = 00:00:00.29 . Memory (MB): peak = 2550.598 ; gain = 0.000 ; free physical = 2852 ; free virtual = 8593
+INFO: [Opt 31-389] Phase Constant propagation created 0 cells and removed 0 cells
+
+Phase 3 Sweep
+Phase 3 Sweep | Checksum: 175e83c32
+
+Time (s): cpu = 00:00:00.36 ; elapsed = 00:00:00.38 . Memory (MB): peak = 2550.598 ; gain = 0.000 ; free physical = 2852 ; free virtual = 8593
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 0 cells
+
+Phase 4 BUFG optimization
+Phase 4 BUFG optimization | Checksum: 175e83c32
+
+Time (s): cpu = 00:00:00.45 ; elapsed = 00:00:00.49 . Memory (MB): peak = 2574.609 ; gain = 24.012 ; free physical = 2852 ; free virtual = 8593
+INFO: [Opt 31-662] Phase BUFG optimization created 0 cells of which 0 are BUFGs and removed 0 cells.
+
+Phase 5 Shift Register Optimization
+INFO: [Opt 31-1064] SRL Remap converted 0 SRLs to 0 registers and converted 0 registers of register chains to 0 SRLs
+Phase 5 Shift Register Optimization | Checksum: 15523e1d2
+
+Time (s): cpu = 00:00:00.62 ; elapsed = 00:00:00.67 . Memory (MB): peak = 2574.609 ; gain = 24.012 ; free physical = 2852 ; free virtual = 8593
+INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
+
+Phase 6 Post Processing Netlist
+Phase 6 Post Processing Netlist | Checksum: 15523e1d2
+
+Time (s): cpu = 00:00:00.63 ; elapsed = 00:00:00.67 . Memory (MB): peak = 2574.609 ; gain = 24.012 ; free physical = 2852 ; free virtual = 8593
+INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
+Opt_design Change Summary
+=========================
+
+
+-------------------------------------------------------------------------------------------------------------------------
+|  Phase                        |  #Cells created  |  #Cells Removed  |  #Constrained objects preventing optimizations  |
+-------------------------------------------------------------------------------------------------------------------------
+|  Retarget                     |               0  |               3  |                                              0  |
+|  Constant propagation         |               0  |               0  |                                              0  |
+|  Sweep                        |               0  |               0  |                                              0  |
+|  BUFG optimization            |               0  |               0  |                                              0  |
+|  Shift Register Optimization  |               0  |               0  |                                              0  |
+|  Post Processing Netlist      |               0  |               0  |                                              0  |
+-------------------------------------------------------------------------------------------------------------------------
+
+
+
+Starting Connectivity Check Task
+
+Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.04 . Memory (MB): peak = 2574.609 ; gain = 0.000 ; free physical = 2852 ; free virtual = 8593
+Ending Logic Optimization Task | Checksum: 15523e1d2
+
+Time (s): cpu = 00:00:00.65 ; elapsed = 00:00:00.71 . Memory (MB): peak = 2574.609 ; gain = 24.012 ; free physical = 2852 ; free virtual = 8593
+
+Starting Power Optimization Task
+INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+INFO: [Pwropt 34-9] Applying IDT optimizations ...
+INFO: [Pwropt 34-10] Applying ODC optimizations ...
+
+
+Starting PowerOpt Patch Enables Task
+INFO: [Pwropt 34-162] WRITE_MODE attribute of 0 BRAM(s) out of a total of 32 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
+INFO: [Pwropt 34-201] Structural ODC has moved 0 WE to EN ports
+Number of BRAM Ports augmented: 32 newly gated: 64 Total Ports: 64
+Number of Flops added for Enable Generation: 33
+
+Ending PowerOpt Patch Enables Task | Checksum: 190c16e6b
+
+Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.08 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2805 ; free virtual = 8551
+Ending Power Optimization Task | Checksum: 190c16e6b
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2646.613 ; gain = 72.004 ; free physical = 2805 ; free virtual = 8551
+
+Starting Final Cleanup Task
+
+Starting Logic Optimization Task
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Ending Logic Optimization Task | Checksum: 1abf79102
+
+Time (s): cpu = 00:00:00.47 ; elapsed = 00:00:00.5 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2804 ; free virtual = 8550
+Ending Final Cleanup Task | Checksum: 1abf79102
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2804 ; free virtual = 8550
+
+Starting Netlist Obfuscation Task
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2804 ; free virtual = 8550
+Ending Netlist Obfuscation Task | Checksum: 1abf79102
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2804 ; free virtual = 8550
+INFO: [Common 17-83] Releasing license: Implementation
+22 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2646.613 ; gain = 331.895 ; free physical = 2804 ; free virtual = 8550
+# place_design
+Command: place_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7s50'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7s50'
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+Running DRC as a precondition to command place_design
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+Starting Placer Task
+
+Phase 1 Placer Initialization
+
+Phase 1.1 Placer Initialization Netlist Sorting
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2805 ; free virtual = 8553
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 1354f1420
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2805 ; free virtual = 8553
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2805 ; free virtual = 8553
+
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 1d088147c
+
+Time (s): cpu = 00:00:00.47 ; elapsed = 00:00:00.49 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2802 ; free virtual = 8553
+
+Phase 1.3 Build Placer Netlist Model
+Phase 1.3 Build Placer Netlist Model | Checksum: 1ee6085ef
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2800 ; free virtual = 8553
+
+Phase 1.4 Constrain Clocks/Macros
+Phase 1.4 Constrain Clocks/Macros | Checksum: 1ee6085ef
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2800 ; free virtual = 8553
+Phase 1 Placer Initialization | Checksum: 1ee6085ef
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2800 ; free virtual = 8553
+
+Phase 2 Global Placement
+
+Phase 2.1 Floorplanning
+Phase 2.1 Floorplanning | Checksum: 214d7503c
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2799 ; free virtual = 8553
+
+Phase 2.2 Update Timing before SLR Path Opt
+Phase 2.2 Update Timing before SLR Path Opt | Checksum: 24a9f795e
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2799 ; free virtual = 8553
+
+Phase 2.3 Post-Processing in Floorplanning
+Phase 2.3 Post-Processing in Floorplanning | Checksum: 24a9f795e
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2799 ; free virtual = 8553
+
+Phase 2.4 Global Placement Core
+
+Phase 2.4.1 UpdateTiming Before Physical Synthesis
+Phase 2.4.1 UpdateTiming Before Physical Synthesis | Checksum: 2218988e0
+
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2798 ; free virtual = 8552
+
+Phase 2.4.2 Physical Synthesis In Placer
+INFO: [Physopt 32-1035] Found 8 LUTNM shape to break, 55 LUT instances to create LUTNM shape
+INFO: [Physopt 32-1044] Break lutnm for timing: one critical 0, two critical 8, total 8, new lutff created 0
+INFO: [Physopt 32-1138] End 1 Pass. Optimized 32 nets or LUTs. Breaked 8 LUTs, combined 24 existing LUTs and moved 0 existing LUT
+INFO: [Physopt 32-65] No nets found for high-fanout optimization.
+INFO: [Physopt 32-232] Optimized 0 net. Created 0 new instance.
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-456] No candidate cells for DSP register optimization found in the design.
+INFO: [Physopt 32-775] End 2 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-1123] No candidate cells found for Shift Register to Pipeline optimization
+INFO: [Physopt 32-775] End 2 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-677] No candidate cells for Shift Register optimization found in the design
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-526] No candidate cells for BRAM register optimization found in the design
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-846] No candidate cells for URAM register optimization found in the design
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-846] No candidate cells for URAM register optimization found in the design
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-949] No candidate nets found for dynamic/static region interface net replication
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2796 ; free virtual = 8552
+
+Summary of Physical Synthesis Optimizations
+============================================
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+|  Optimization                                     |  Added Cells  |  Removed Cells  |  Optimized Cells/Nets  |  Dont Touch  |  Iterations  |  Elapsed   |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+|  LUT Combining                                    |            8  |             24  |                    32  |           0  |           1  |  00:00:00  |
+|  Retime                                           |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Very High Fanout                                 |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  DSP Register                                     |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Shift Register to Pipeline                       |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Shift Register                                   |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  BRAM Register                                    |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  URAM Register                                    |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Dynamic/Static Region Interface Net Replication  |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Total                                            |            8  |             24  |                    32  |           0  |           9  |  00:00:00  |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Phase 2.4.2 Physical Synthesis In Placer | Checksum: eeab9a8e
+
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2796 ; free virtual = 8552
+Phase 2.4 Global Placement Core | Checksum: 13e344025
+
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2795 ; free virtual = 8552
+Phase 2 Global Placement | Checksum: 13e344025
+
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2795 ; free virtual = 8552
+
+Phase 3 Detail Placement
+
+Phase 3.1 Commit Multi Column Macros
+Phase 3.1 Commit Multi Column Macros | Checksum: 739afcd4
+
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2795 ; free virtual = 8552
+
+Phase 3.2 Commit Most Macros & LUTRAMs
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: a100da2c
+
+Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2795 ; free virtual = 8551
+
+Phase 3.3 Area Swap Optimization
+Phase 3.3 Area Swap Optimization | Checksum: f03c3bc8
+
+Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2795 ; free virtual = 8551
+
+Phase 3.4 Pipeline Register Optimization
+Phase 3.4 Pipeline Register Optimization | Checksum: 12c9cba8a
+
+Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2795 ; free virtual = 8551
+
+Phase 3.5 Fast Optimization
+Phase 3.5 Fast Optimization | Checksum: 16ca239e2
+
+Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2794 ; free virtual = 8551
+
+Phase 3.6 Small Shape Detail Placement
+Phase 3.6 Small Shape Detail Placement | Checksum: d9be3b5a
+
+Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2794 ; free virtual = 8551
+
+Phase 3.7 Re-assign LUT pins
+Phase 3.7 Re-assign LUT pins | Checksum: fd46d4e7
+
+Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2794 ; free virtual = 8551
+
+Phase 3.8 Pipeline Register Optimization
+Phase 3.8 Pipeline Register Optimization | Checksum: 1aedb0195
+
+Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2794 ; free virtual = 8551
+
+Phase 3.9 Fast Optimization
+Phase 3.9 Fast Optimization | Checksum: 9378f6b4
+
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2794 ; free virtual = 8551
+Phase 3 Detail Placement | Checksum: 9378f6b4
+
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2794 ; free virtual = 8551
+
+Phase 4 Post Placement Optimization and Clean-Up
+
+Phase 4.1 Post Commit Optimization
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+
+Phase 4.1.1 Post Placement Optimization
+Post Placement Optimization Initialization | Checksum: 189f0ad76
+
+Phase 4.1.1.1 BUFG Insertion
+
+Starting Physical Synthesis Task
+
+Phase 1 Physical Synthesis Initialization
+INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 1 CPUs
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-7.419 | TNS=-8301.739 |
+Phase 1 Physical Synthesis Initialization | Checksum: 16cb4c9b1
+
+Time (s): cpu = 00:00:00.22 ; elapsed = 00:00:00.25 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2794 ; free virtual = 8551
+INFO: [Place 46-33] Processed net manta_inst/lab8_io_core_inst/manta_rst_reg_0, BUFG insertion was skipped due to placement/routing conflicts.
+INFO: [Place 46-33] Processed net dut/i_q_counter, BUFG insertion was skipped due to placement/routing conflicts.
+INFO: [Place 46-56] BUFG insertion identified 2 candidate nets. Inserted BUFG: 0, Replicated BUFG Driver: 0, Skipped due to Placement/Routing Conflicts: 2, Skipped due to Timing Degradation: 0, Skipped due to netlist editing failed: 0.
+Ending Physical Synthesis Task | Checksum: 16cb4c9b1
+
+Time (s): cpu = 00:00:00.43 ; elapsed = 00:00:00.48 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2794 ; free virtual = 8551
+Phase 4.1.1.1 BUFG Insertion | Checksum: 189f0ad76
+
+Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2794 ; free virtual = 8551
+
+Phase 4.1.1.2 Post Placement Timing Optimization
+INFO: [Place 30-746] Post Placement Timing Summary WNS=-6.457. For the most accurate timing information please run report_timing.
+Phase 4.1.1.2 Post Placement Timing Optimization | Checksum: 232d9b13b
+
+Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2794 ; free virtual = 8551
+
+Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2794 ; free virtual = 8551
+Phase 4.1 Post Commit Optimization | Checksum: 232d9b13b
+
+Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2794 ; free virtual = 8551
+
+Phase 4.2 Post Placement Cleanup
+Phase 4.2 Post Placement Cleanup | Checksum: 232d9b13b
+
+Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2794 ; free virtual = 8551
+
+Phase 4.3 Placer Reporting
+
+Phase 4.3.1 Print Estimated Congestion
+INFO: [Place 30-612] Post-Placement Estimated Congestion 
+ ____________________________________________________
+|           | Global Congestion | Short Congestion  |
+| Direction | Region Size       | Region Size       |
+|___________|___________________|___________________|
+|      North|                2x2|                4x4|
+|___________|___________________|___________________|
+|      South|                2x2|                2x2|
+|___________|___________________|___________________|
+|       East|                1x1|                8x8|
+|___________|___________________|___________________|
+|       West|                1x1|                1x1|
+|___________|___________________|___________________|
+
+Phase 4.3.1 Print Estimated Congestion | Checksum: 232d9b13b
+
+Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2794 ; free virtual = 8551
+Phase 4.3 Placer Reporting | Checksum: 232d9b13b
+
+Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2794 ; free virtual = 8551
+
+Phase 4.4 Final Placement Cleanup
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2794 ; free virtual = 8551
+
+Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2794 ; free virtual = 8551
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 2343e5a79
+
+Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2794 ; free virtual = 8551
+Ending Placer Task | Checksum: 172c16a55
+
+Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2794 ; free virtual = 8552
+INFO: [Common 17-83] Releasing license: Implementation
+35 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+place_design completed successfully
+place_design: Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 2646.613 ; gain = 0.000 ; free physical = 2794 ; free virtual = 8552
+# report_clock_utilization -file $outputDir/clock_util.rpt
+# if {[get_property SLACK [get_timing_paths -max_paths 1 -nworst 1 -setup]] < 0} {
+#  puts "Found setup timing violations => running physical optimization"
+#  phys_opt_design
+# }
+Found setup timing violations => running physical optimization
+Command: phys_opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7s50'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7s50'
+INFO: [Vivado_Tcl 4-1435] PhysOpt_Tcl_Interface Runtime Before Starting Physical Synthesis Task | CPU: 0.03s |  WALL: 0.04s
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2792 ; free virtual = 8550
+
+Starting Physical Synthesis Task
+
+Phase 1 Physical Synthesis Initialization
+INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 1 CPUs
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-6.457 | TNS=-7684.619 |
+Phase 1 Physical Synthesis Initialization | Checksum: 22271254d
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2792 ; free virtual = 8550
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-6.457 | TNS=-7684.619 |
+
+Phase 2 DSP Register Optimization
+INFO: [Physopt 32-456] No candidate cells for DSP register optimization found in the design.
+INFO: [Physopt 32-775] End 2 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+Phase 2 DSP Register Optimization | Checksum: 22271254d
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2792 ; free virtual = 8550
+
+Phase 3 Critical Path Optimization
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-6.457 | TNS=-7684.619 |
+INFO: [Physopt 32-702] Processed net dut/acs_47/sm_out_reg[19]_0[15]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-81] Processed net manta_inst/lab8_io_core_inst/Q[1]. Replicated 3 times.
+INFO: [Physopt 32-735] Processed net manta_inst/lab8_io_core_inst/Q[1]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-6.454 | TNS=-7685.074 |
+INFO: [Physopt 32-81] Processed net manta_inst/lab8_io_core_inst/Q[1]. Replicated 1 times.
+INFO: [Physopt 32-735] Processed net manta_inst/lab8_io_core_inst/Q[1]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-6.441 | TNS=-7682.071 |
+INFO: [Physopt 32-702] Processed net manta_inst/lab8_io_core_inst/Q[1]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/sm_out[19]_i_23__36_0[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/sm_out_reg[19]_i_19__34_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/sm_out_reg[19]_i_42__34_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/sm_out[19]_i_70__36_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/sm_out_reg[19]_i_5__36_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/sm_out[19]_i_17__35_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/acs_47/sm_out5[18]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/sm_out_reg[15]_i_3__36_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/sm_out[15]_i_8__36_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/sm_out_reg[19]_i_7__0_n_6. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/sm_out_reg[15]_i_4_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/sm_out[15]_i_16_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[3].bmu_j/met_out1[9]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[3].bmu_j/met_out1_inferred__0/i___58_carry__0_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 26 pins.
+INFO: [Physopt 32-735] Processed net manta_inst/lab8_io_core_inst/soft_inp_reg[7]_8[0]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-6.401 | TNS=-7663.779 |
+INFO: [Physopt 32-702] Processed net dut/acs_23/sm_out_reg[19]_0[16]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-81] Processed net dut/input_i_reg_n_0_[1]. Replicated 3 times.
+INFO: [Physopt 32-735] Processed net dut/input_i_reg_n_0_[1]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-6.375 | TNS=-7644.038 |
+INFO: [Physopt 32-81] Processed net dut/input_i_reg_n_0_[1]_repN. Replicated 2 times.
+INFO: [Physopt 32-735] Processed net dut/input_i_reg_n_0_[1]_repN. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-6.357 | TNS=-7564.197 |
+INFO: [Physopt 32-81] Processed net dut/input_i_reg_n_0_[4]. Replicated 3 times.
+INFO: [Physopt 32-735] Processed net dut/input_i_reg_n_0_[4]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-6.351 | TNS=-7567.305 |
+INFO: [Physopt 32-702] Processed net dut/input_i_reg_n_0_[4]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/met_out1__58_carry__1_n_7. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/met_out1__58_carry__0_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/met_out1__58_carry__0_i_5__1_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/met_out1__58_carry__0_i_10__1_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/met_out1__0_carry__1_n_7. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/met_out1__0_carry__0_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/met_out1__0_carry__0_i_7__1_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/met_out1__0_carry__0_i_3__1_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/genblk2[30].sm_normal_reg[30][19][15]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net clk_100mhz_IBUF. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net clk_100mhz. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/acs_47/sm_out_reg[19]_0[15]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/input_i_reg_n_0_[4]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/sm_out[19]_i_23__36_0[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/sm_out[19]_i_70__36_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/sm_out_reg[19]_i_5__36_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/sm_out[19]_i_17__35_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/acs_47/sm_out5[18]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/sm_out[15]_i_8__36_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/sm_out_reg[19]_i_7__0_n_6. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/sm_out[15]_i_16_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/met_out1__58_carry__1_n_7. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/met_out1__58_carry__0_i_5__1_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/met_out1__58_carry__0_i_10__1_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/met_out1__0_carry__1_n_7. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/met_out1__0_carry__0_i_7__1_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/met_out1__0_carry__0_i_3__1_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/genblk2[30].sm_normal_reg[30][19][15]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net clk_100mhz_IBUF. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net clk_100mhz. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-6.351 | TNS=-7567.305 |
+Phase 3 Critical Path Optimization | Checksum: 22271254d
+
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2792 ; free virtual = 8551
+
+Phase 4 Critical Path Optimization
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-6.351 | TNS=-7567.305 |
+INFO: [Physopt 32-702] Processed net dut/acs_47/sm_out_reg[19]_0[15]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-81] Processed net dut/input_i_reg_n_0_[4]. Replicated 2 times.
+INFO: [Physopt 32-735] Processed net dut/input_i_reg_n_0_[4]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-6.349 | TNS=-7566.927 |
+INFO: [Physopt 32-81] Processed net dut/input_i_reg_n_0_[4]_repN_3. Replicated 1 times.
+INFO: [Physopt 32-735] Processed net dut/input_i_reg_n_0_[4]_repN_3. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-6.348 | TNS=-7566.738 |
+INFO: [Physopt 32-702] Processed net dut/input_i_reg_n_0_[4]_repN_3. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/sm_out[19]_i_23__36_0[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/sm_out_reg[19]_i_19__34_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/sm_out_reg[19]_i_42__34_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/sm_out[19]_i_70__36_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/sm_out_reg[19]_i_5__36_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/sm_out[19]_i_17__35_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/acs_47/sm_out5[18]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/sm_out_reg[15]_i_3__36_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/sm_out[15]_i_8__36_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/sm_out_reg[19]_i_7__0_n_6. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/sm_out_reg[15]_i_4_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/sm_out[15]_i_16_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/met_out1__58_carry__1_n_7. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/met_out1__58_carry__0_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/met_out1__58_carry__0_i_5__1_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/met_out1__58_carry__0_i_10__1_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/met_out1__0_carry__1_n_7. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/met_out1__0_carry__0_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/met_out1__0_carry__0_i_7__1_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/met_out1__0_carry__0_i_3__1_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/genblk2[30].sm_normal_reg[30][19][15]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net clk_100mhz_IBUF. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net clk_100mhz. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/acs_47/sm_out_reg[19]_0[15]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/input_i_reg_n_0_[4]_repN_3. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/sm_out[19]_i_23__36_0[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/sm_out[19]_i_70__36_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/sm_out_reg[19]_i_5__36_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/sm_out[19]_i_17__35_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/acs_47/sm_out5[18]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/sm_out[15]_i_8__36_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/sm_out_reg[19]_i_7__0_n_6. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/sm_out[15]_i_16_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/met_out1__58_carry__1_n_7. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/met_out1__58_carry__0_i_5__1_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/met_out1__58_carry__0_i_10__1_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/met_out1__0_carry__1_n_7. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/met_out1__0_carry__0_i_7__1_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/met_out1__0_carry__0_i_3__1_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dut/bmu_inst[1].bmu_j/genblk2[30].sm_normal_reg[30][19][15]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net clk_100mhz_IBUF. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net clk_100mhz. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-6.348 | TNS=-7566.738 |
+Phase 4 Critical Path Optimization | Checksum: 22271254d
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2792 ; free virtual = 8551
+Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2792 ; free virtual = 8551
+INFO: [Physopt 32-603] Post Physical Optimization Timing Summary | WNS=-6.348 | TNS=-7566.738 |
+
+Summary of Physical Synthesis Optimizations
+============================================
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+|  Optimization   |  WNS Gain (ns)  |  TNS Gain (ns)  |  Added Cells  |  Removed Cells  |  Optimized Cells/Nets  |  Dont Touch  |  Iterations  |  Elapsed   |
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+|  DSP Register   |          0.000  |          0.000  |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Critical Path  |          0.109  |        117.881  |           15  |              0  |                     8  |           0  |           2  |  00:00:12  |
+|  Total          |          0.109  |        117.881  |           15  |              0  |                     8  |           0  |           3  |  00:00:12  |
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2792 ; free virtual = 8551
+Ending Physical Synthesis Task | Checksum: 1a61449d6
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2792 ; free virtual = 8551
+INFO: [Common 17-83] Releasing license: Implementation
+129 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+phys_opt_design completed successfully
+phys_opt_design: Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2792 ; free virtual = 8551
+# write_checkpoint -force $outputDir/post_place.dcp
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:00.35 ; elapsed = 00:00:00.36 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2764 ; free virtual = 8550
+INFO: [Common 17-1381] The checkpoint '/home/fpga/obj/post_place.dcp' has been generated.
+# report_utilization -file $outputDir/post_place_util.rpt
+# report_timing_summary -file $outputDir/post_place_timing_summary.rpt
+# report_timing -file $outputDir/post_place_timing.rpt
+INFO: [Timing 38-78] ReportTimingParams: -max_paths 1 -nworst 1 -delay_type max -sort_by slack.
+# route_design -directive Explore
+Command: route_design -directive Explore
+Attempting to get a license for feature 'Implementation' and/or device 'xc7s50'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7s50'
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+Running DRC as a precondition to command route_design
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+
+Starting Routing Task
+INFO: [Route 35-270] Using Router directive 'Explore'.
+
+Phase 1 Build RT Design
+Checksum: PlaceDB: 75ce60f6 ConstDB: 0 ShapeSum: fe83be03 RouteDB: 0
+Post Restoration Checksum: NetGraph: cffd67f | NumContArr: 11c71ee2 | Constraints: 190a55ad | Timing: 0
+Phase 1 Build RT Design | Checksum: 37d14b0e
+
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2786 ; free virtual = 8551
+
+Phase 2 Router Initialization
+
+Phase 2.1 Fix Topology Constraints
+Phase 2.1 Fix Topology Constraints | Checksum: 37d14b0e
+
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2786 ; free virtual = 8551
+
+Phase 2.2 Pre Route Cleanup
+Phase 2.2 Pre Route Cleanup | Checksum: 37d14b0e
+
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2786 ; free virtual = 8550
+ Number of Nodes with overlaps = 0
+
+Phase 2.3 Update Timing
+Phase 2.3 Update Timing | Checksum: a09edccd
+
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2778 ; free virtual = 8543
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-5.981 | TNS=-7023.332| WHS=-0.186 | THS=-49.230|
+
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 0 %
+  Global Horizontal Routing Utilization  = 0 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 9112
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 9112
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+Phase 2 Router Initialization | Checksum: 1064ac793
+
+Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2776 ; free virtual = 8543
+
+Phase 3 Initial Routing
+
+Phase 3.1 Global Routing
+Phase 3.1 Global Routing | Checksum: 1064ac793
+
+Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2775 ; free virtual = 8543
+Phase 3 Initial Routing | Checksum: 29aecdc64
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2773 ; free virtual = 8541
+INFO: [Route 35-580] Design has 37 pins with tight setup and hold constraints.
+
+The top 5 pins with tight setup and hold constraints:
+
++====================+===================+================================+
+| Launch Setup Clock | Launch Hold Clock | Pin                            |
++====================+===================+================================+
+| gclk               | gclk              | dut/acs_34/prev_state_reg[0]/D |
+| gclk               | gclk              | dut/acs_25/prev_state_reg[0]/D |
+| gclk               | gclk              | dut/acs_47/prev_state_reg[0]/D |
+| gclk               | gclk              | dut/acs_12/prev_state_reg[0]/D |
+| gclk               | gclk              | dut/acs_18/prev_state_reg[0]/D |
++--------------------+-------------------+--------------------------------+
+
+File with complete list of pins: tight_setup_hold_pins.txt
+
+
+Phase 4 Rip-up And Reroute
+
+Phase 4.1 Global Iteration 0
+ Number of Nodes with overlaps = 3284
+ Number of Nodes with overlaps = 691
+ Number of Nodes with overlaps = 244
+ Number of Nodes with overlaps = 92
+ Number of Nodes with overlaps = 28
+ Number of Nodes with overlaps = 23
+ Number of Nodes with overlaps = 11
+ Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-7.058 | TNS=-8363.998| WHS=N/A    | THS=N/A    |
+
+Phase 4.1 Global Iteration 0 | Checksum: 23883e454
+
+Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2773 ; free virtual = 8542
+
+Phase 4.2 Global Iteration 1
+ Number of Nodes with overlaps = 844
+ Number of Nodes with overlaps = 338
+ Number of Nodes with overlaps = 118
+ Number of Nodes with overlaps = 39
+ Number of Nodes with overlaps = 27
+ Number of Nodes with overlaps = 15
+ Number of Nodes with overlaps = 15
+ Number of Nodes with overlaps = 8
+ Number of Nodes with overlaps = 11
+ Number of Nodes with overlaps = 7
+ Number of Nodes with overlaps = 4
+ Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 2
+ Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-6.939 | TNS=-8419.263| WHS=N/A    | THS=N/A    |
+
+Phase 4.2 Global Iteration 1 | Checksum: 16596c730
+
+Time (s): cpu = 00:00:31 ; elapsed = 00:00:31 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2773 ; free virtual = 8542
+
+Phase 4.3 Global Iteration 2
+ Number of Nodes with overlaps = 776
+ Number of Nodes with overlaps = 324
+ Number of Nodes with overlaps = 144
+ Number of Nodes with overlaps = 72
+ Number of Nodes with overlaps = 31
+ Number of Nodes with overlaps = 23
+ Number of Nodes with overlaps = 3
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-6.772 | TNS=-8205.661| WHS=N/A    | THS=N/A    |
+
+Phase 4.3 Global Iteration 2 | Checksum: 10315ba94
+
+Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2773 ; free virtual = 8542
+
+Phase 4.4 Global Iteration 3
+ Number of Nodes with overlaps = 927
+ Number of Nodes with overlaps = 313
+ Number of Nodes with overlaps = 177
+ Number of Nodes with overlaps = 104
+ Number of Nodes with overlaps = 64
+ Number of Nodes with overlaps = 51
+ Number of Nodes with overlaps = 31
+ Number of Nodes with overlaps = 15
+ Number of Nodes with overlaps = 7
+ Number of Nodes with overlaps = 2
+ Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-6.778 | TNS=-8175.874| WHS=N/A    | THS=N/A    |
+
+Phase 4.4 Global Iteration 3 | Checksum: 17dd87e34
+
+Time (s): cpu = 00:00:46 ; elapsed = 00:00:46 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2774 ; free virtual = 8543
+Phase 4 Rip-up And Reroute | Checksum: 17dd87e34
+
+Time (s): cpu = 00:00:46 ; elapsed = 00:00:46 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2774 ; free virtual = 8543
+
+Phase 5 Delay and Skew Optimization
+
+Phase 5.1 Delay CleanUp
+
+Phase 5.1.1 Update Timing
+Phase 5.1.1 Update Timing | Checksum: 13be10a79
+
+Time (s): cpu = 00:00:46 ; elapsed = 00:00:47 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2774 ; free virtual = 8543
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-6.765 | TNS=-8160.205| WHS=N/A    | THS=N/A    |
+
+ Number of Nodes with overlaps = 0
+Phase 5.1 Delay CleanUp | Checksum: 136299b5e
+
+Time (s): cpu = 00:00:47 ; elapsed = 00:00:47 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2773 ; free virtual = 8542
+
+Phase 5.2 Clock Skew Optimization
+Phase 5.2 Clock Skew Optimization | Checksum: 136299b5e
+
+Time (s): cpu = 00:00:47 ; elapsed = 00:00:47 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2773 ; free virtual = 8542
+Phase 5 Delay and Skew Optimization | Checksum: 136299b5e
+
+Time (s): cpu = 00:00:47 ; elapsed = 00:00:47 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2773 ; free virtual = 8542
+
+Phase 6 Post Hold Fix
+
+Phase 6.1 Hold Fix Iter
+
+Phase 6.1.1 Update Timing
+Phase 6.1.1 Update Timing | Checksum: 117189668
+
+Time (s): cpu = 00:00:47 ; elapsed = 00:00:48 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2773 ; free virtual = 8542
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-6.765 | TNS=-8133.968| WHS=0.038  | THS=0.000  |
+
+Phase 6.1 Hold Fix Iter | Checksum: 128bfb989
+
+Time (s): cpu = 00:00:47 ; elapsed = 00:00:48 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2773 ; free virtual = 8542
+Phase 6 Post Hold Fix | Checksum: 128bfb989
+
+Time (s): cpu = 00:00:47 ; elapsed = 00:00:48 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2773 ; free virtual = 8542
+
+Phase 7 Timing Verification
+
+Phase 7.1 Update Timing
+Phase 7.1 Update Timing | Checksum: 1991b07c9
+
+Time (s): cpu = 00:00:48 ; elapsed = 00:00:48 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2773 ; free virtual = 8542
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-6.765 | TNS=-8133.968| WHS=N/A    | THS=N/A    |
+
+Phase 7 Timing Verification | Checksum: 1991b07c9
+
+Time (s): cpu = 00:00:48 ; elapsed = 00:00:48 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2773 ; free virtual = 8542
+
+Phase 8 Route finalize
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 8.23974 %
+  Global Horizontal Routing Utilization  = 9.42192 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 0
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 0
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+
+--GLOBAL Congestion:
+Utilization threshold used for congestion level computation: 0.85
+Congestion Report
+North Dir 1x1 Area, Max Cong = 80.1802%, No Congested Regions.
+South Dir 1x1 Area, Max Cong = 99.0991%, Congestion bounded by tiles (Lower Left Tile -> Upper Right Tile):
+   INT_R_X19Y31 -> INT_R_X19Y31
+   INT_L_X26Y30 -> INT_L_X26Y30
+   INT_L_X20Y29 -> INT_L_X20Y29
+   INT_L_X20Y28 -> INT_L_X20Y28
+   INT_L_X20Y27 -> INT_L_X20Y27
+East Dir 1x1 Area, Max Cong = 89.7059%, Congestion bounded by tiles (Lower Left Tile -> Upper Right Tile):
+   INT_L_X24Y22 -> INT_L_X24Y22
+   INT_R_X23Y21 -> INT_R_X23Y21
+West Dir 1x1 Area, Max Cong = 94.1176%, Congestion bounded by tiles (Lower Left Tile -> Upper Right Tile):
+   INT_L_X22Y38 -> INT_L_X22Y38
+   INT_L_X20Y31 -> INT_L_X20Y31
+   INT_L_X24Y22 -> INT_L_X24Y22
+   INT_L_X28Y21 -> INT_L_X28Y21
+   INT_L_X28Y20 -> INT_L_X28Y20
+
+------------------------------
+Reporting congestion hotspots
+------------------------------
+Direction: North
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 0
+Direction: South
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 1 Aspect Ratio: 0.25 Sparse Ratio: 1
+Direction: East
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 1
+Direction: West
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 1 Aspect Ratio: 0.333333 Sparse Ratio: 0.75
+
+Phase 8 Route finalize | Checksum: 1991b07c9
+
+Time (s): cpu = 00:00:48 ; elapsed = 00:00:48 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2773 ; free virtual = 8542
+
+Phase 9 Verifying routed nets
+
+ Verification completed successfully
+Phase 9 Verifying routed nets | Checksum: 1991b07c9
+
+Time (s): cpu = 00:00:48 ; elapsed = 00:00:48 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2773 ; free virtual = 8542
+
+Phase 10 Depositing Routes
+Phase 10 Depositing Routes | Checksum: 2173f0b03
+
+Time (s): cpu = 00:00:48 ; elapsed = 00:00:49 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2773 ; free virtual = 8542
+
+Phase 11 Incr Placement Change
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2772 ; free virtual = 8542
+INFO: [Place 30-746] Post Placement Timing Summary WNS=-6.451. For the most accurate timing information please run report_timing.
+Ending IncrPlace Task | Checksum: 1a89ba5f7
+
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2772 ; free virtual = 8541
+Phase 11 Incr Placement Change | Checksum: 1a89ba5f7
+
+Time (s): cpu = 00:00:56 ; elapsed = 00:00:57 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2772 ; free virtual = 8541
+
+Phase 12 Build RT Design
+Checksum: PlaceDB: b0d80faa ConstDB: 0 ShapeSum: f7c3964d RouteDB: 88b0db5a
+Post Restoration Checksum: NetGraph: e0ac128c | NumContArr: 694e92d2 | Constraints: 190a55ad | Timing: 0
+Phase 12 Build RT Design | Checksum: 16304fb0b
+
+Time (s): cpu = 00:00:58 ; elapsed = 00:00:59 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2772 ; free virtual = 8541
+
+Phase 13 Router Initialization
+
+Phase 13.1 Fix Topology Constraints
+Phase 13.1 Fix Topology Constraints | Checksum: 16304fb0b
+
+Time (s): cpu = 00:00:58 ; elapsed = 00:00:59 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2772 ; free virtual = 8541
+
+Phase 13.2 Pre Route Cleanup
+Phase 13.2 Pre Route Cleanup | Checksum: baac8ad7
+
+Time (s): cpu = 00:00:58 ; elapsed = 00:00:59 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2771 ; free virtual = 8541
+ Number of Nodes with overlaps = 0
+
+Phase 13.3 Update Timing
+Phase 13.3 Update Timing | Checksum: 1de1591ed
+
+Time (s): cpu = 00:00:59 ; elapsed = 00:01:01 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2771 ; free virtual = 8542
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-6.475 | TNS=-8072.791| WHS=-0.186 | THS=-47.941|
+
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 8.15539 %
+  Global Horizontal Routing Utilization  = 9.34175 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 465
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 107
+  Number of Partially Routed Nets     = 358
+  Number of Node Overlaps             = 0
+
+Phase 13 Router Initialization | Checksum: 16a2dc97b
+
+Time (s): cpu = 00:01:00 ; elapsed = 00:01:01 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2770 ; free virtual = 8541
+
+Phase 14 Initial Routing
+
+Phase 14.1 Global Routing
+Phase 14.1 Global Routing | Checksum: 16a2dc97b
+
+Time (s): cpu = 00:01:00 ; elapsed = 00:01:01 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2769 ; free virtual = 8541
+Phase 14 Initial Routing | Checksum: 15ebbe4c2
+
+Time (s): cpu = 00:01:01 ; elapsed = 00:01:02 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2769 ; free virtual = 8541
+INFO: [Route 35-580] Design has 36 pins with tight setup and hold constraints.
+
+The top 5 pins with tight setup and hold constraints:
+
++====================+===================+================================+
+| Launch Setup Clock | Launch Hold Clock | Pin                            |
++====================+===================+================================+
+| gclk               | gclk              | dut/acs_24/prev_state_reg[0]/D |
+| gclk               | gclk              | dut/acs_34/prev_state_reg[0]/D |
+| gclk               | gclk              | dut/acs_25/prev_state_reg[0]/D |
+| gclk               | gclk              | dut/acs_20/prev_state_reg[0]/D |
+| gclk               | gclk              | dut/acs_18/prev_state_reg[0]/D |
++--------------------+-------------------+--------------------------------+
+
+File with complete list of pins: tight_setup_hold_pins.txt
+
+
+Phase 15 Rip-up And Reroute
+
+Phase 15.1 Global Iteration 0
+ Number of Nodes with overlaps = 523
+ Number of Nodes with overlaps = 245
+ Number of Nodes with overlaps = 158
+ Number of Nodes with overlaps = 82
+ Number of Nodes with overlaps = 56
+ Number of Nodes with overlaps = 28
+ Number of Nodes with overlaps = 25
+ Number of Nodes with overlaps = 2
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-6.791 | TNS=-8298.173| WHS=N/A    | THS=N/A    |
+
+Phase 15.1 Global Iteration 0 | Checksum: 1ab06ec7f
+
+Time (s): cpu = 00:01:05 ; elapsed = 00:01:06 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2769 ; free virtual = 8541
+
+Phase 15.2 Global Iteration 1
+ Number of Nodes with overlaps = 485
+ Number of Nodes with overlaps = 298
+ Number of Nodes with overlaps = 206
+ Number of Nodes with overlaps = 77
+ Number of Nodes with overlaps = 34
+ Number of Nodes with overlaps = 35
+ Number of Nodes with overlaps = 25
+ Number of Nodes with overlaps = 14
+ Number of Nodes with overlaps = 9
+ Number of Nodes with overlaps = 5
+ Number of Nodes with overlaps = 5
+ Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-6.731 | TNS=-8168.287| WHS=N/A    | THS=N/A    |
+
+Phase 15.2 Global Iteration 1 | Checksum: 13b572008
+
+Time (s): cpu = 00:01:11 ; elapsed = 00:01:12 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2769 ; free virtual = 8541
+
+Phase 15.3 Global Iteration 2
+ Number of Nodes with overlaps = 747
+ Number of Nodes with overlaps = 359
+ Number of Nodes with overlaps = 172
+ Number of Nodes with overlaps = 118
+ Number of Nodes with overlaps = 29
+ Number of Nodes with overlaps = 18
+ Number of Nodes with overlaps = 25
+ Number of Nodes with overlaps = 16
+ Number of Nodes with overlaps = 16
+ Number of Nodes with overlaps = 9
+ Number of Nodes with overlaps = 6
+ Number of Nodes with overlaps = 4
+ Number of Nodes with overlaps = 2
+ Number of Nodes with overlaps = 2
+ Number of Nodes with overlaps = 2
+ Number of Nodes with overlaps = 3
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-6.468 | TNS=-7969.267| WHS=N/A    | THS=N/A    |
+
+Phase 15.3 Global Iteration 2 | Checksum: 1c69c9d56
+
+Time (s): cpu = 00:01:18 ; elapsed = 00:01:19 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2768 ; free virtual = 8541
+
+Phase 15.4 Global Iteration 3
+ Number of Nodes with overlaps = 735
+ Number of Nodes with overlaps = 301
+ Number of Nodes with overlaps = 132
+ Number of Nodes with overlaps = 92
+ Number of Nodes with overlaps = 50
+ Number of Nodes with overlaps = 56
+ Number of Nodes with overlaps = 39
+ Number of Nodes with overlaps = 22
+ Number of Nodes with overlaps = 8
+ Number of Nodes with overlaps = 4
+ Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-6.492 | TNS=-7991.294| WHS=N/A    | THS=N/A    |
+
+Phase 15.4 Global Iteration 3 | Checksum: 1eccb447c
+
+Time (s): cpu = 00:01:25 ; elapsed = 00:01:27 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2768 ; free virtual = 8541
+Phase 15 Rip-up And Reroute | Checksum: 1eccb447c
+
+Time (s): cpu = 00:01:25 ; elapsed = 00:01:27 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2768 ; free virtual = 8541
+
+Phase 16 Delay and Skew Optimization
+
+Phase 16.1 Delay CleanUp
+
+Phase 16.1.1 Update Timing
+Phase 16.1.1 Update Timing | Checksum: 251d373fb
+
+Time (s): cpu = 00:01:26 ; elapsed = 00:01:27 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2768 ; free virtual = 8541
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-6.461 | TNS=-7923.569| WHS=N/A    | THS=N/A    |
+
+ Number of Nodes with overlaps = 0
+Phase 16.1 Delay CleanUp | Checksum: 217745b07
+
+Time (s): cpu = 00:01:26 ; elapsed = 00:01:28 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2768 ; free virtual = 8541
+
+Phase 16.2 Clock Skew Optimization
+Phase 16.2 Clock Skew Optimization | Checksum: 217745b07
+
+Time (s): cpu = 00:01:26 ; elapsed = 00:01:28 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2768 ; free virtual = 8541
+Phase 16 Delay and Skew Optimization | Checksum: 217745b07
+
+Time (s): cpu = 00:01:26 ; elapsed = 00:01:28 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2768 ; free virtual = 8541
+
+Phase 17 Post Hold Fix
+
+Phase 17.1 Hold Fix Iter
+
+Phase 17.1.1 Update Timing
+Phase 17.1.1 Update Timing | Checksum: 22619da44
+
+Time (s): cpu = 00:01:27 ; elapsed = 00:01:28 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2768 ; free virtual = 8541
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-6.461 | TNS=-7913.853| WHS=0.038  | THS=0.000  |
+
+Phase 17.1 Hold Fix Iter | Checksum: 2bf042939
+
+Time (s): cpu = 00:01:27 ; elapsed = 00:01:28 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2768 ; free virtual = 8541
+Phase 17 Post Hold Fix | Checksum: 2bf042939
+
+Time (s): cpu = 00:01:27 ; elapsed = 00:01:28 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2768 ; free virtual = 8541
+
+Phase 18 Timing Verification
+
+Phase 18.1 Update Timing
+Phase 18.1 Update Timing | Checksum: 24fa7c573
+
+Time (s): cpu = 00:01:27 ; elapsed = 00:01:29 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2768 ; free virtual = 8541
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-6.461 | TNS=-7913.853| WHS=N/A    | THS=N/A    |
+
+Phase 18 Timing Verification | Checksum: 24fa7c573
+
+Time (s): cpu = 00:01:27 ; elapsed = 00:01:29 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2768 ; free virtual = 8541
+
+Phase 19 Route finalize
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 8.38077 %
+  Global Horizontal Routing Utilization  = 9.5626 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 0
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 0
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+
+--GLOBAL Congestion:
+Utilization threshold used for congestion level computation: 0.85
+Congestion Report
+North Dir 1x1 Area, Max Cong = 86.4865%, Congestion bounded by tiles (Lower Left Tile -> Upper Right Tile):
+   INT_L_X26Y37 -> INT_L_X26Y37
+South Dir 1x1 Area, Max Cong = 99.0991%, Congestion bounded by tiles (Lower Left Tile -> Upper Right Tile):
+   INT_L_X20Y34 -> INT_L_X20Y34
+   INT_L_X20Y29 -> INT_L_X20Y29
+   INT_L_X22Y29 -> INT_L_X22Y29
+   INT_L_X24Y29 -> INT_L_X24Y29
+   INT_L_X20Y28 -> INT_L_X20Y28
+East Dir 1x1 Area, Max Cong = 95.5882%, Congestion bounded by tiles (Lower Left Tile -> Upper Right Tile):
+   INT_L_X24Y37 -> INT_L_X24Y37
+   INT_R_X25Y35 -> INT_R_X25Y35
+   INT_L_X24Y34 -> INT_L_X24Y34
+   INT_L_X24Y22 -> INT_L_X24Y22
+West Dir 1x1 Area, Max Cong = 95.5882%, Congestion bounded by tiles (Lower Left Tile -> Upper Right Tile):
+   INT_L_X22Y38 -> INT_L_X22Y38
+   INT_L_X22Y37 -> INT_L_X22Y37
+   INT_L_X20Y33 -> INT_L_X20Y33
+   INT_L_X20Y31 -> INT_L_X20Y31
+   INT_L_X24Y22 -> INT_L_X24Y22
+
+------------------------------
+Reporting congestion hotspots
+------------------------------
+Direction: North
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 1
+Direction: South
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 1 Aspect Ratio: 0.2 Sparse Ratio: 1.25
+Direction: East
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 1
+Direction: West
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 1 Aspect Ratio: 0.5 Sparse Ratio: 0.5
+
+Phase 19 Route finalize | Checksum: 24fa7c573
+
+Time (s): cpu = 00:01:27 ; elapsed = 00:01:29 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2768 ; free virtual = 8541
+
+Phase 20 Verifying routed nets
+
+ Verification completed successfully
+Phase 20 Verifying routed nets | Checksum: 24fa7c573
+
+Time (s): cpu = 00:01:27 ; elapsed = 00:01:29 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2767 ; free virtual = 8541
+
+Phase 21 Depositing Routes
+Phase 21 Depositing Routes | Checksum: 1dda6cc17
+
+Time (s): cpu = 00:01:28 ; elapsed = 00:01:30 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2767 ; free virtual = 8541
+
+Phase 22 Post Router Timing
+INFO: [Route 35-20] Post Routing Timing Summary | WNS=-6.459 | TNS=-7912.195| WHS=0.037  | THS=0.000  |
+
+Phase 22 Post Router Timing | Checksum: 16d93f41f
+
+Time (s): cpu = 00:01:29 ; elapsed = 00:01:31 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2767 ; free virtual = 8541
+CRITICAL WARNING: [Route 35-39] The design did not meet timing requirements. Please run report_timing_summary for detailed reports.
+Resolution: Verify that the timing was met or had small violations at all previous steps (synthesis, placement, power_opt, and phys_opt). Run report_timing_summary and analyze individual timing paths.
+INFO: [Route 35-253] TNS is the sum of the worst slack violation on every endpoint in the design. Review the paths with the biggest WNS violations in the timing reports and modify your constraints or your design to improve both WNS and TNS.
+INFO: [Route 35-16] Router Completed Successfully
+
+Phase 23 Post-Route Event Processing
+Phase 23 Post-Route Event Processing | Checksum: 125d8b114
+
+Time (s): cpu = 00:01:29 ; elapsed = 00:01:31 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2767 ; free virtual = 8541
+
+Time (s): cpu = 00:01:29 ; elapsed = 00:01:31 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2767 ; free virtual = 8541
+
+Routing Is Done.
+INFO: [Common 17-83] Releasing license: Implementation
+29 Infos, 0 Warnings, 1 Critical Warnings and 0 Errors encountered.
+route_design completed successfully
+route_design: Time (s): cpu = 00:01:30 ; elapsed = 00:01:32 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2766 ; free virtual = 8541
+# write_checkpoint -force $outputDir/post_route.dcp
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:00.4 ; elapsed = 00:00:00.39 . Memory (MB): peak = 2662.621 ; gain = 0.000 ; free physical = 2737 ; free virtual = 8540
+INFO: [Common 17-1381] The checkpoint '/home/fpga/obj/post_route.dcp' has been generated.
+# report_route_status -file $outputDir/post_route_status.rpt
+# report_timing_summary -file $outputDir/post_route_timing_summary.rpt
+# report_timing -file $outputDir/post_route_timing.rpt
+INFO: [Timing 38-78] ReportTimingParams: -max_paths 1 -nworst 1 -delay_type max -sort_by slack.
+# report_power -file $outputDir/post_route_power.rpt
+Command: report_power -file obj/post_route_power.rpt
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+WARNING: [Power 33-332] Found switching activity that implies high-fanout reset nets being asserted for excessive periods of time which may result in inaccurate power analysis.
+Resolution: To review and fix problems, please run Power Constraints Advisor in the GUI from Tools > Power Constraints Advisor or run report_power with the -advisory option to generate a text report.
+0 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+report_power completed successfully
+# report_drc -file $outputDir/post_imp_drc.rpt
+Command: report_drc -file obj/post_imp_drc.rpt
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2023.1/data/ip'.
+INFO: [Vivado_Tcl 2-168] The results of DRC are in file /home/fpga/obj/post_imp_drc.rpt.
+report_drc completed successfully
+# write_bitstream -force $outputDir/final.bit
+Command: write_bitstream -force obj/final.bit
+Attempting to get a license for feature 'Implementation' and/or device 'xc7s50'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7s50'
+Running DRC as a precondition to command write_bitstream
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [Vivado 12-3199] DRC finished with 0 Errors
+INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
+Loading data files...
+Loading site data...
+Loading route data...
+Processing options...
+Creating bitmap...
+Creating bitstream...
+Bitstream compression saved 10193376 bits.
+Writing bitstream obj/final.bit...
+INFO: [Vivado 12-1842] Bitgen Completed Successfully.
+INFO: [Project 1-1876] WebTalk data collection is mandatory when using a ULT device. To see the specific WebTalk data collected for your design, open the usage_statistics_webtalk.html or usage_statistics_webtalk.xml file in the implementation directory.
+INFO: [Common 17-83] Releasing license: Implementation
+7 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+write_bitstream completed successfully
+write_bitstream: Time (s): cpu = 00:00:07 ; elapsed = 00:00:17 . Memory (MB): peak = 2872.629 ; gain = 207.934 ; free physical = 2507 ; free virtual = 8300
+INFO: [Common 17-206] Exiting Vivado at Thu Dec 14 14:03:51 2023...
