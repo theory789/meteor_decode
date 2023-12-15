@@ -104,7 +104,7 @@ viterbi_decode(uint8_t *restrict out, int8_t *restrict soft_cadu, int bytecount)
 {
   // size of soft_cadu 1024 * 8 * 2
     FILE *f = fopen("soft_cadu.txt", "wb");
-    for (int i  = 0; i < bytecount; i++) {
+    for (int i  = 0; i < bytecount * 2; i++) { 
       fprintf(f, "%c", soft_cadu[i]);
     }
     fclose(f);
@@ -113,7 +113,6 @@ viterbi_decode(uint8_t *restrict out, int8_t *restrict soft_cadu, int bytecount)
     char command[256];
     snprintf(command, sizeof(command), "python3 /home/sammy/shit/meteor_decode/viterbi_interface.py %d", bytecount);
     system(command);
-    /* system("python3 /home/sammy/shit/meteor_decode/viterbi_interface.py %d", bytecount); */  
     /* printf("Finish"); */
 
 
@@ -131,6 +130,7 @@ viterbi_decode(uint8_t *restrict out, int8_t *restrict soft_cadu, int bytecount)
     /* printf("here"); */
     while (fscanf(file, "%c", &value) == 1 && ind < bytecount) {
         out[ind++] = (uint8_t)value;
+        /* printf("int: %d", value); */
     }
     fclose(file);
 
