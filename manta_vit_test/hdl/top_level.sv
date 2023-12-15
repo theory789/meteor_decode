@@ -47,12 +47,14 @@ module top_level(
   logic sm_out_deb;
   logic valid_inp_vit;
 
-  logic clk_wiz_81;
+  logic clk_wiz_81_o;
   logic locked;
+  logic clk_wiz_81;
+  assign clk_wiz_81 = clk_wiz_81_o & locked;
    clk_wiz_0 clk_81
    (
     // Clock out ports
-    .clk_out1(clk_wiz_81),     // output clk_out1
+    .clk_out1(clk_wiz_81_o),     // output clk_out1
     // Status and control signals
     .reset(sys_rst), // input reset
     .locked(locked),       // output locked
@@ -62,36 +64,40 @@ module top_level(
 
  logic [5:0] last_state;
 
-logic soft_inp_0;
-logic soft_inp_1;
+logic [7:0] soft_inp_0;
+logic [7:0] soft_inp_1;
 logic valid_in_vit_0;
 logic valid_in_vit_1;
 logic vit_desc_0;
 logic vit_desc_1;
 logic ready_in_0;
 logic ready_in_1;
-logic last_state_0;
-logic last_state_1;
+logic [5:0] last_state_0;
+logic [5:0] last_state_1;
 logic valid_out_0;
 logic valid_out_1;
 logic sys_rst_0;
 logic sys_rst_1;
 
-always_ff @(posedge clk_100mhz) begin
+always_ff @(posedge clk_wiz_81) begin
   soft_inp_0 <= manta_soft_inp;
   soft_inp_1 <= soft_inp_0;
   valid_in_vit_0 <= valid_inp_vit;
   valid_in_vit_1 <= valid_in_vit_0;
-  vit_desc_0 <= vit_desc;
-  vit_desc_1 <= vit_desc_0;
-  ready_in_0 <= ready_in;
-  ready_in_1 <= ready_in_0;
-  last_state_0 <= last_state;
-  last_state_1 <= last_state_0;
-  valid_out_0 <= valid_out;
-  valid_out_1 <= valid_out_0;
-  sys_rst_0 <= sys_rst + manta_rst;
+  sys_rst_0 <= sys_rst | manta_rst;
   sys_rst_1 <= sys_rst_0;
+end
+
+
+always_ff @(posedge clk_wiz_81) begin
+  vit_desc_0 <= vit_desc_1;
+  vit_desc <= vit_desc_0;
+  ready_in_0 <= ready_in_1;
+  ready_in <= ready_in_0;
+  last_state_0 <= last_state_1;
+  last_state <= last_state_0;
+  valid_out_0 <= valid_out_1;
+  valid_out <= valid_out_0;
 end
 
   viterbi dut (
@@ -111,6 +117,8 @@ end
       manta_valid_out_prev <= 0;
       manta_valid_in_prev <= 0;
       valid_inp_vit <= 0;
+
+
     end else begin
       manta_valid_in_prev <= manta_valid_in;
       valid_inp_vit <= manta_valid_in & ~manta_valid_in_prev;
