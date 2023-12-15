@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
-| Date         : Thu Dec 14 14:01:01 2023
+| Date         : Fri Dec 15 16:35:28 2023
 | Host         : worker running 64-bit Ubuntu 20.04.6 LTS
 | Command      : report_timing_summary -file obj/post_synth_timing_summary.rpt
 | Design       : top_level
@@ -52,7 +52,7 @@ Table of Contents
 2. checking constant_clock (0)
 3. checking pulse_width_clock (0)
 4. checking unconstrained_internal_endpoints (0)
-5. checking no_input_delay (2)
+5. checking no_input_delay (1)
 6. checking no_output_delay (1)
 7. checking multiple_clock (0)
 8. checking generated_clocks (0)
@@ -83,9 +83,9 @@ Table of Contents
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
 
-5. checking no_input_delay (2)
+5. checking no_input_delay (1)
 ------------------------------
- There are 2 input ports with no input delay specified. (HIGH)
+ There is 1 input port with no input delay specified. (HIGH)
 
  There are 0 input ports with no input delay but user has a false path constraint.
 
@@ -137,10 +137,10 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-     -4.093    -5497.438                   1344                 8835        0.074        0.000                      0                 8835        2.750        0.000                       0                  3276  
+      5.192        0.000                      0                  394        0.070        0.000                      0                  394        3.000        0.000                       0                   210  
 
 
-Timing constraints are not met.
+All user specified timing constraints are met.
 
 
 ------------------------------------------------------------------------------------------------
@@ -148,9 +148,12 @@ Timing constraints are not met.
 | -------------
 ------------------------------------------------------------------------------------------------
 
-Clock  Waveform(ns)       Period(ns)      Frequency(MHz)
------  ------------       ----------      --------------
-gclk   {0.000 4.000}      10.000          100.000         
+Clock                 Waveform(ns)       Period(ns)      Frequency(MHz)
+-----                 ------------       ----------      --------------
+clk_81/inst/clk_in1   {0.000 5.000}      10.000          100.000         
+  clk_out1_clk_wiz_0  {0.000 6.154}      12.308          81.250          
+  clkfbout_clk_wiz_0  {0.000 20.000}     40.000          25.000          
+gclk                  {0.000 4.000}      10.000          100.000         
 
 
 ------------------------------------------------------------------------------------------------
@@ -158,9 +161,12 @@ gclk   {0.000 4.000}      10.000          100.000
 | -----------------
 ------------------------------------------------------------------------------------------------
 
-Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
------             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-gclk               -4.093    -5497.438                   1344                 8835        0.074        0.000                      0                 8835        2.750        0.000                       0                  3276  
+Clock                     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+-----                     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+clk_81/inst/clk_in1                                                                                                                                                     3.000        0.000                       0                     1  
+  clk_out1_clk_wiz_0                                                                                                                                                   10.152        0.000                       0                     2  
+  clkfbout_clk_wiz_0                                                                                                                                                   37.845        0.000                       0                     3  
+gclk                        5.192        0.000                      0                  394        0.070        0.000                      0                  394        3.500        0.000                       0                   204  
 
 
 ------------------------------------------------------------------------------------------------
@@ -188,31 +194,102 @@ Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing 
 
 
 ---------------------------------------------------------------------------------------------------
+From Clock:  clk_81/inst/clk_in1
+  To Clock:  clk_81/inst/clk_in1
+
+Setup :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
+Hold  :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
+PW    :            0  Failing Endpoints,  Worst Slack        3.000ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Pulse Width Checks
+--------------------------------------------------------------------------------------
+Clock Name:         clk_81/inst/clk_in1
+Waveform(ns):       { 0.000 5.000 }
+Period(ns):         10.000
+Sources:            { clk_81/inst/clk_in1 }
+
+Check Type        Corner  Lib Pin            Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location  Pin
+Min Period        n/a     MMCME2_ADV/CLKIN1  n/a            1.249         10.000      8.751                clk_81/inst/mmcm_adv_inst/CLKIN1
+Max Period        n/a     MMCME2_ADV/CLKIN1  n/a            100.000       10.000      90.000               clk_81/inst/mmcm_adv_inst/CLKIN1
+Low Pulse Width   Slow    MMCME2_ADV/CLKIN1  n/a            2.000         5.000       3.000                clk_81/inst/mmcm_adv_inst/CLKIN1
+High Pulse Width  Slow    MMCME2_ADV/CLKIN1  n/a            2.000         5.000       3.000                clk_81/inst/mmcm_adv_inst/CLKIN1
+
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  clk_out1_clk_wiz_0
+  To Clock:  clk_out1_clk_wiz_0
+
+Setup :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
+Hold  :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
+PW    :            0  Failing Endpoints,  Worst Slack       10.152ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Pulse Width Checks
+--------------------------------------------------------------------------------------
+Clock Name:         clk_out1_clk_wiz_0
+Waveform(ns):       { 0.000 6.154 }
+Period(ns):         12.308
+Sources:            { clk_81/inst/mmcm_adv_inst/CLKOUT0 }
+
+Check Type  Corner  Lib Pin             Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location  Pin
+Min Period  n/a     BUFG/I              n/a            2.155         12.308      10.152               clk_81/inst/clkout1_buf/I
+Max Period  n/a     MMCME2_ADV/CLKOUT0  n/a            213.360       12.308      201.052              clk_81/inst/mmcm_adv_inst/CLKOUT0
+
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  clkfbout_clk_wiz_0
+  To Clock:  clkfbout_clk_wiz_0
+
+Setup :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
+Hold  :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
+PW    :            0  Failing Endpoints,  Worst Slack       37.845ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Pulse Width Checks
+--------------------------------------------------------------------------------------
+Clock Name:         clkfbout_clk_wiz_0
+Waveform(ns):       { 0.000 20.000 }
+Period(ns):         40.000
+Sources:            { clk_81/inst/mmcm_adv_inst/CLKFBOUT }
+
+Check Type  Corner  Lib Pin             Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location  Pin
+Min Period  n/a     BUFG/I              n/a            2.155         40.000      37.845               clk_81/inst/clkf_buf/I
+Max Period  n/a     MMCME2_ADV/CLKFBIN  n/a            100.000       40.000      60.000               clk_81/inst/mmcm_adv_inst/CLKFBIN
+
+
+
+---------------------------------------------------------------------------------------------------
 From Clock:  gclk
   To Clock:  gclk
 
-Setup :         1344  Failing Endpoints,  Worst Slack       -4.093ns,  Total Violation    -5497.438ns
-Hold  :            0  Failing Endpoints,  Worst Slack        0.074ns,  Total Violation        0.000ns
-PW    :            0  Failing Endpoints,  Worst Slack        2.750ns,  Total Violation        0.000ns
+Setup :            0  Failing Endpoints,  Worst Slack        5.192ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.070ns,  Total Violation        0.000ns
+PW    :            0  Failing Endpoints,  Worst Slack        3.500ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (VIOLATED) :        -4.093ns  (required time - arrival time)
-  Source:                 dut/input_i_reg[1]/C
+Slack (MET) :             5.192ns  (required time - arrival time)
+  Source:                 manta_inst/brx/FSM_onehot_state_reg[1]/C
                             (rising edge-triggered cell FDRE clocked by gclk  {rise@0.000ns fall@4.000ns period=10.000ns})
-  Destination:            dut/acs_0/prev_state_reg[0]/D
+  Destination:            manta_inst/brx/addr_o_reg[0]/R
                             (rising edge-triggered cell FDRE clocked by gclk  {rise@0.000ns fall@4.000ns period=10.000ns})
   Path Group:             gclk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (gclk rise@10.000ns - gclk rise@0.000ns)
-  Data Path Delay:        13.942ns  (logic 6.920ns (49.634%)  route 7.022ns (50.366%))
-  Logic Levels:           18  (CARRY4=10 LUT2=3 LUT4=2 LUT6=3)
+  Data Path Delay:        4.195ns  (logic 0.999ns (23.814%)  route 3.196ns (76.186%))
+  Logic Levels:           3  (LUT6=3)
   Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    2.660ns = ( 12.660 - 10.000 ) 
-    Source Clock Delay      (SCD):    2.920ns
-    Clock Pessimism Removal (CPR):    0.115ns
+    Destination Clock Delay (DCD):    1.809ns = ( 11.809 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.024ns
+    Clock Pessimism Removal (CPR):    0.070ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.000ns
@@ -225,78 +302,34 @@ Slack (VIOLATED) :        -4.093ns  (required time - arrival time)
     N15                                               0.000     0.000 r  clk_100mhz (IN)
                          net (fo=0)                   0.000     0.000    clk_100mhz
     N15                  IBUF (Prop_ibuf_I_O)         1.440     1.440 r  clk_100mhz_IBUF_inst/O
-                         net (fo=1, unplaced)         0.800     2.240    clk_100mhz_IBUF
-                         BUFG (Prop_bufg_I_O)         0.096     2.336 r  clk_100mhz_IBUF_BUFG_inst/O
-                         net (fo=3275, unplaced)      0.584     2.920    dut/clk_100mhz_IBUF_BUFG
-                         FDRE                                         r  dut/input_i_reg[1]/C
+                         net (fo=205, unplaced)       0.584     2.024    manta_inst/brx/clk_100mhz
+                         FDRE                                         r  manta_inst/brx/FSM_onehot_state_reg[1]/C
   -------------------------------------------------------------------    -------------------
-                         FDRE (Prop_fdre_C_Q)         0.456     3.376 r  dut/input_i_reg[1]/Q
-                         net (fo=58, unplaced)        1.051     4.427    dut/bmu_inst[1].bmu_j/Q[1]
-                         LUT6 (Prop_lut6_I0_O)        0.295     4.722 r  dut/bmu_inst[1].bmu_j/met_out1__0_carry__0_i_3__1/O
-                         net (fo=2, unplaced)         0.650     5.372    dut/bmu_inst[1].bmu_j/met_out1__0_carry__0_i_3__1_n_0
-                         CARRY4 (Prop_carry4_DI[1]_O[3])
-                                                      0.614     5.986 r  dut/bmu_inst[1].bmu_j/met_out1__0_carry__0/O[3]
-                         net (fo=3, unplaced)         0.636     6.622    dut/bmu_inst[1].bmu_j/met_out1__0_carry__0_n_4
-                         LUT4 (Prop_lut4_I1_O)        0.307     6.929 r  dut/bmu_inst[1].bmu_j/met_out1__58_carry__0_i_11__1/O
-                         net (fo=4, unplaced)         0.473     7.402    dut/bmu_inst[1].bmu_j/met_out1__58_carry__0_i_11__1_n_0
-                         LUT6 (Prop_lut6_I0_O)        0.124     7.526 r  dut/bmu_inst[1].bmu_j/met_out1__58_carry__0_i_3__1/O
-                         net (fo=1, unplaced)         0.639     8.165    dut/bmu_inst[1].bmu_j/met_out1__58_carry__0_i_3__1_n_0
-                         CARRY4 (Prop_carry4_DI[1]_CO[3])
-                                                      0.507     8.672 r  dut/bmu_inst[1].bmu_j/met_out1__58_carry__0/CO[3]
-                         net (fo=1, unplaced)         0.000     8.672    dut/bmu_inst[1].bmu_j/met_out1__58_carry__0_n_0
-                         CARRY4 (Prop_carry4_CI_O[0])
-                                                      0.235     8.907 r  dut/bmu_inst[1].bmu_j/met_out1__58_carry__1/O[0]
-                         net (fo=4, unplaced)         0.494     9.401    dut/bmu_inst[1].bmu_j/met_out1__58_carry__1_n_7
-                         LUT2 (Prop_lut2_I0_O)        0.295     9.696 r  dut/bmu_inst[1].bmu_j/sm_out[15]_i_16__0/O
-                         net (fo=1, unplaced)         0.000     9.696    dut/bmu_inst[1].bmu_j/sm_out[15]_i_16__0_n_0
-                         CARRY4 (Prop_carry4_S[1]_O[3])
-                                                      0.640    10.336 r  dut/bmu_inst[1].bmu_j/sm_out_reg[15]_i_4__0/O[3]
-                         net (fo=128, unplaced)       0.724    11.060    dut/bmu_inst[1].bmu_j/sm_out_reg[15]_i_4__0_n_4
-                         LUT2 (Prop_lut2_I0_O)        0.307    11.367 r  dut/bmu_inst[1].bmu_j/sm_out[15]_i_6__50/O
-                         net (fo=1, unplaced)         0.000    11.367    dut/bmu_inst[1].bmu_j/sm_out[15]_i_6__50_n_0
-                         CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550    11.917 r  dut/bmu_inst[1].bmu_j/sm_out_reg[15]_i_2__50/CO[3]
-                         net (fo=1, unplaced)         0.000    11.917    dut/bmu_inst[1].bmu_j/sm_out_reg[15]_i_2__50_n_0
-                         CARRY4 (Prop_carry4_CI_O[3])
-                                                      0.329    12.246 f  dut/bmu_inst[1].bmu_j/sm_out_reg[19]_i_2__49/O[3]
-                         net (fo=5, unplaced)         0.646    12.892    dut/bmu_inst[1].bmu_j/sm_out50_out_24[19]
-                         LUT2 (Prop_lut2_I1_O)        0.307    13.199 r  dut/bmu_inst[1].bmu_j/sm_out[19]_i_11__50/O
-                         net (fo=1, unplaced)         0.000    13.199    dut/bmu_inst[1].bmu_j/sm_out[19]_i_11__50_n_0
-                         CARRY4 (Prop_carry4_S[1]_CO[1])
-                                                      0.491    13.690 r  dut/bmu_inst[1].bmu_j/sm_out_reg[19]_i_3__50/CO[1]
-                         net (fo=40, unplaced)        0.688    14.378    dut/bmu_inst[3].bmu_j/sm_out_reg[0][0]
-                         LUT6 (Prop_lut6_I3_O)        0.332    14.710 r  dut/bmu_inst[3].bmu_j/sm_out[19]_i_69__49/O
-                         net (fo=1, unplaced)         0.639    15.349    dut/bmu_inst[3].bmu_j/sm_out[19]_i_69__49_n_0
-                         CARRY4 (Prop_carry4_DI[1]_CO[3])
-                                                      0.507    15.856 r  dut/bmu_inst[3].bmu_j/sm_out_reg[19]_i_42__48/CO[3]
-                         net (fo=1, unplaced)         0.009    15.865    dut/bmu_inst[3].bmu_j/sm_out_reg[19]_i_42__48_n_0
-                         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    15.979 r  dut/bmu_inst[3].bmu_j/sm_out_reg[19]_i_19__48/CO[3]
-                         net (fo=1, unplaced)         0.000    15.979    dut/bmu_inst[3].bmu_j/sm_out_reg[19]_i_19__48_n_0
-                         CARRY4 (Prop_carry4_CI_CO[1])
-                                                      0.178    16.157 f  dut/bmu_inst[3].bmu_j/sm_out_reg[19]_i_6__50/CO[1]
-                         net (fo=21, unplaced)        0.373    16.530    dut/acs_0/CO[0]
-                         LUT4 (Prop_lut4_I2_O)        0.332    16.862 r  dut/acs_0/prev_state[0]_i_1__50/O
-                         net (fo=1, unplaced)         0.000    16.862    dut/acs_0/prev_state[0]_i_1__50_n_0
-                         FDRE                                         r  dut/acs_0/prev_state_reg[0]/D
+                         FDRE (Prop_fdre_C_Q)         0.456     2.480 f  manta_inst/brx/FSM_onehot_state_reg[1]/Q
+                         net (fo=5, unplaced)         0.993     3.473    manta_inst/brx/FSM_onehot_state_reg_n_0_[1]
+                         LUT6 (Prop_lut6_I0_O)        0.295     3.768 f  manta_inst/brx/FSM_onehot_state[0]_i_3/O
+                         net (fo=4, unplaced)         0.926     4.694    manta_inst/urx/valid_o_reg_0
+                         LUT6 (Prop_lut6_I0_O)        0.124     4.818 f  manta_inst/urx/valid_o_i_1/O
+                         net (fo=5, unplaced)         0.477     5.295    manta_inst/brx/valid_o_reg_0
+                         LUT6 (Prop_lut6_I5_O)        0.124     5.419 r  manta_inst/brx/addr_o[3]_i_1/O
+                         net (fo=4, unplaced)         0.800     6.219    manta_inst/brx/addr_o[3]_i_1_n_0
+                         FDRE                                         r  manta_inst/brx/addr_o_reg[0]/R
   -------------------------------------------------------------------    -------------------
 
                          (clock gclk rise edge)      10.000    10.000 r  
     N15                                               0.000    10.000 r  clk_100mhz (IN)
                          net (fo=0)                   0.000    10.000    clk_100mhz
     N15                  IBUF (Prop_ibuf_I_O)         1.370    11.370 r  clk_100mhz_IBUF_inst/O
-                         net (fo=1, unplaced)         0.760    12.130    clk_100mhz_IBUF
-                         BUFG (Prop_bufg_I_O)         0.091    12.221 r  clk_100mhz_IBUF_BUFG_inst/O
-                         net (fo=3275, unplaced)      0.439    12.660    dut/acs_0/clk_100mhz_IBUF_BUFG
-                         FDRE                                         r  dut/acs_0/prev_state_reg[0]/C
-                         clock pessimism              0.115    12.775    
-                         clock uncertainty           -0.035    12.740    
-                         FDRE (Setup_fdre_C_D)        0.029    12.769    dut/acs_0/prev_state_reg[0]
+                         net (fo=205, unplaced)       0.439    11.809    manta_inst/brx/clk_100mhz
+                         FDRE                                         r  manta_inst/brx/addr_o_reg[0]/C
+                         clock pessimism              0.070    11.879    
+                         clock uncertainty           -0.035    11.844    
+                         FDRE (Setup_fdre_C_R)       -0.433    11.411    manta_inst/brx/addr_o_reg[0]
   -------------------------------------------------------------------
-                         required time                         12.769    
-                         arrival time                         -16.862    
+                         required time                         11.411    
+                         arrival time                          -6.219    
   -------------------------------------------------------------------
-                         slack                                 -4.093    
+                         slack                                  5.192    
 
 
 
@@ -304,7 +337,7 @@ Slack (VIOLATED) :        -4.093ns  (required time - arrival time)
 
 Min Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             0.074ns  (arrival time - required time)
+Slack (MET) :             0.070ns  (arrival time - required time)
   Source:                 manta_inst/urx/baud_counter_reg[9]/C
                             (rising edge-triggered cell FDRE clocked by gclk  {rise@0.000ns fall@4.000ns period=10.000ns})
   Destination:            manta_inst/urx/baud_counter_reg[10]/D
@@ -312,12 +345,12 @@ Slack (MET) :             0.074ns  (arrival time - required time)
   Path Group:             gclk
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (gclk rise@0.000ns - gclk rise@0.000ns)
-  Data Path Delay:        0.324ns  (logic 0.235ns (72.639%)  route 0.089ns (27.361%))
+  Data Path Delay:        0.341ns  (logic 0.252ns (74.005%)  route 0.089ns (25.995%))
   Logic Levels:           1  (CARRY4=1)
   Clock Path Skew:        0.145ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.039ns
-    Source Clock Delay      (SCD):    0.686ns
-    Clock Pessimism Removal (CPR):    0.208ns
+    Destination Clock Delay (DCD):    0.655ns
+    Source Clock Delay      (SCD):    0.323ns
+    Clock Pessimism Removal (CPR):    0.187ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -325,16 +358,14 @@ Slack (MET) :             0.074ns  (arrival time - required time)
     N15                                               0.000     0.000 r  clk_100mhz (IN)
                          net (fo=0)                   0.000     0.000    clk_100mhz
     N15                  IBUF (Prop_ibuf_I_O)         0.209     0.209 r  clk_100mhz_IBUF_inst/O
-                         net (fo=1, unplaced)         0.337     0.546    clk_100mhz_IBUF
-                         BUFG (Prop_bufg_I_O)         0.026     0.572 r  clk_100mhz_IBUF_BUFG_inst/O
-                         net (fo=3275, unplaced)      0.114     0.686    manta_inst/urx/clk_100mhz_IBUF_BUFG
+                         net (fo=205, unplaced)       0.114     0.323    manta_inst/urx/clk_100mhz
                          FDRE                                         r  manta_inst/urx/baud_counter_reg[9]/C
   -------------------------------------------------------------------    -------------------
-                         FDRE (Prop_fdre_C_Q)         0.141     0.827 r  manta_inst/urx/baud_counter_reg[9]/Q
-                         net (fo=3, unplaced)         0.089     0.915    manta_inst/urx/baud_counter[9]
+                         FDRE (Prop_fdre_C_Q)         0.158     0.481 r  manta_inst/urx/baud_counter_reg[9]/Q
+                         net (fo=3, unplaced)         0.089     0.569    manta_inst/urx/baud_counter[9]
                          CARRY4 (Prop_carry4_DI[0]_O[1])
-                                                      0.094     1.009 r  manta_inst/urx/baud_counter0_carry__1/O[1]
-                         net (fo=1, unplaced)         0.000     1.009    manta_inst/urx/baud_counter0[10]
+                                                      0.094     0.663 r  manta_inst/urx/baud_counter0_carry__1/O[1]
+                         net (fo=1, unplaced)         0.000     0.663    manta_inst/urx/baud_counter0[10]
                          FDRE                                         r  manta_inst/urx/baud_counter_reg[10]/D
   -------------------------------------------------------------------    -------------------
 
@@ -342,17 +373,15 @@ Slack (MET) :             0.074ns  (arrival time - required time)
     N15                                               0.000     0.000 r  clk_100mhz (IN)
                          net (fo=0)                   0.000     0.000    clk_100mhz
     N15                  IBUF (Prop_ibuf_I_O)         0.396     0.396 r  clk_100mhz_IBUF_inst/O
-                         net (fo=1, unplaced)         0.355     0.751    clk_100mhz_IBUF
-                         BUFG (Prop_bufg_I_O)         0.029     0.780 r  clk_100mhz_IBUF_BUFG_inst/O
-                         net (fo=3275, unplaced)      0.259     1.039    manta_inst/urx/clk_100mhz_IBUF_BUFG
+                         net (fo=205, unplaced)       0.259     0.655    manta_inst/urx/clk_100mhz
                          FDRE                                         r  manta_inst/urx/baud_counter_reg[10]/C
-                         clock pessimism             -0.208     0.831    
-                         FDRE (Hold_fdre_C_D)         0.105     0.936    manta_inst/urx/baud_counter_reg[10]
+                         clock pessimism             -0.187     0.468    
+                         FDRE (Hold_fdre_C_D)         0.126     0.594    manta_inst/urx/baud_counter_reg[10]
   -------------------------------------------------------------------
-                         required time                         -0.936    
-                         arrival time                           1.009    
+                         required time                         -0.594    
+                         arrival time                           0.663    
   -------------------------------------------------------------------
-                         slack                                  0.074    
+                         slack                                  0.070    
 
 
 
@@ -365,10 +394,10 @@ Waveform(ns):       { 0.000 4.000 }
 Period(ns):         10.000
 Sources:            { clk_100mhz }
 
-Check Type        Corner  Lib Pin             Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location  Pin
-Min Period        n/a     RAMB18E1/CLKARDCLK  n/a            2.944         10.000      7.056                dut/tbu_inst/rows_0[0].store_row/BRAM_reg/CLKARDCLK
-Low Pulse Width   Slow    RAMD32/CLK          n/a            1.250         6.000       4.750                dut/tbu_inst/filo_buff_last_state_reg_0_31_0_5/DP/CLK
-High Pulse Width  Slow    RAMD32/CLK          n/a            1.250         4.000       2.750                dut/tbu_inst/filo_buff_last_state_reg_0_31_0_5/DP/CLK
+Check Type        Corner  Lib Pin  Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location  Pin
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000                manta_inst/brx/FSM_onehot_state_reg[0]/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         6.000       5.500                manta_inst/brx/FSM_onehot_state_reg[0]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         4.000       3.500                manta_inst/brx/FSM_onehot_state_reg[0]/C
 
 
 

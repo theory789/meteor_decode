@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
-| Date             : Thu Dec 14 14:03:32 2023
+| Date             : Fri Dec 15 16:35:39 2023
 | Host             : worker running 64-bit Ubuntu 20.04.6 LTS
 | Command          : report_power -file obj/post_route_power.rpt
 | Design           : top_level
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.259        |
+| Total On-Chip Power (W)  | 0.073        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.185        |
-| Device Static (W)        | 0.073        |
+| Dynamic (W)              | 0.002        |
+| Device Static (W)        | 0.072        |
 | Effective TJA (C/W)      | 4.9          |
-| Max Ambient (C)          | 83.7         |
-| Junction Temperature (C) | 26.3         |
+| Max Ambient (C)          | 84.6         |
+| Junction Temperature (C) | 25.4         |
 | Confidence Level         | Medium       |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -49,23 +49,21 @@ Table of Contents
 1.1 On-Chip Components
 ----------------------
 
-+--------------------------+-----------+----------+-----------+-----------------+
-| On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
-+--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.018 |        3 |       --- |             --- |
-| Slice Logic              |     0.065 |    13695 |       --- |             --- |
-|   LUT as Logic           |     0.059 |     7020 |     32600 |           21.53 |
-|   CARRY4                 |     0.005 |     1280 |      8150 |           15.71 |
-|   Register               |    <0.001 |     3251 |     65200 |            4.99 |
-|   LUT as Distributed RAM |    <0.001 |        6 |      9600 |            0.06 |
-|   F7/F8 Muxes            |    <0.001 |      172 |     32600 |            0.53 |
-|   Others                 |     0.000 |      282 |       --- |             --- |
-| Signals                  |     0.090 |     9112 |       --- |             --- |
-| Block RAM                |     0.013 |       16 |        75 |           21.33 |
-| I/O                      |    <0.001 |       26 |       210 |           12.38 |
-| Static Power             |     0.073 |          |           |                 |
-| Total                    |     0.259 |          |           |                 |
-+--------------------------+-----------+----------+-----------+-----------------+
++----------------+-----------+----------+-----------+-----------------+
+| On-Chip        | Power (W) | Used     | Available | Utilization (%) |
++----------------+-----------+----------+-----------+-----------------+
+| Clocks         |     0.001 |        3 |       --- |             --- |
+| Slice Logic    |    <0.001 |      431 |       --- |             --- |
+|   LUT as Logic |    <0.001 |      164 |     32600 |            0.50 |
+|   CARRY4       |    <0.001 |        4 |      8150 |            0.05 |
+|   Register     |    <0.001 |      204 |     65200 |            0.31 |
+|   F7/F8 Muxes  |    <0.001 |        2 |     32600 |           <0.01 |
+|   Others       |     0.000 |       12 |       --- |             --- |
+| Signals        |    <0.001 |      327 |       --- |             --- |
+| I/O            |    <0.001 |       25 |       210 |           11.90 |
+| Static Power   |     0.072 |          |           |                 |
+| Total          |     0.073 |          |           |                 |
++----------------+-----------+----------+-----------+-----------------+
 
 
 1.2 Power Supply Summary
@@ -74,7 +72,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.196 |       0.185 |      0.011 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.011 |       0.002 |      0.010 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.013 |       0.000 |      0.013 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.001 |       0.000 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -83,7 +81,7 @@ Table of Contents
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vccbram   |       1.000 |     0.001 |       0.000 |      0.001 |       NA    | Unspecified | NA         |
+| Vccbram   |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |       NA    | Unspecified | NA         |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 
@@ -138,17 +136,11 @@ Table of Contents
 3.1 By Hierarchy
 ----------------
 
-+-----------------------+-----------+
-| Name                  | Power (W) |
-+-----------------------+-----------+
-| top_level             |     0.185 |
-|   dut                 |     0.183 |
-|     bmu_inst[1].bmu_j |     0.064 |
-|     bmu_inst[2].bmu_j |     0.035 |
-|     bmu_inst[3].bmu_j |     0.043 |
-|     tbu_inst          |     0.016 |
-|   manta_inst          |     0.003 |
-|     lab8_io_core_inst |     0.001 |
-+-----------------------+-----------+
++--------------+-----------+
+| Name         | Power (W) |
++--------------+-----------+
+| top_level    |     0.002 |
+|   manta_inst |     0.002 |
++--------------+-----------+
 
 

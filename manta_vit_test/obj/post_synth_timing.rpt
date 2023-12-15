@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
-| Date         : Thu Dec 14 14:01:01 2023
+| Date         : Fri Dec 15 16:35:28 2023
 | Host         : worker running 64-bit Ubuntu 20.04.6 LTS
 | Command      : report_timing -file obj/post_synth_timing.rpt
 | Design       : top_level
@@ -12,20 +12,20 @@ Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanc
 
 Timing Report
 
-Slack (VIOLATED) :        -4.093ns  (required time - arrival time)
-  Source:                 dut/input_i_reg[1]/C
+Slack (MET) :             5.192ns  (required time - arrival time)
+  Source:                 manta_inst/brx/FSM_onehot_state_reg[1]/C
                             (rising edge-triggered cell FDRE clocked by gclk  {rise@0.000ns fall@4.000ns period=10.000ns})
-  Destination:            dut/acs_0/prev_state_reg[0]/D
+  Destination:            manta_inst/brx/addr_o_reg[0]/R
                             (rising edge-triggered cell FDRE clocked by gclk  {rise@0.000ns fall@4.000ns period=10.000ns})
   Path Group:             gclk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (gclk rise@10.000ns - gclk rise@0.000ns)
-  Data Path Delay:        13.942ns  (logic 6.920ns (49.634%)  route 7.022ns (50.366%))
-  Logic Levels:           18  (CARRY4=10 LUT2=3 LUT4=2 LUT6=3)
+  Data Path Delay:        4.195ns  (logic 0.999ns (23.814%)  route 3.196ns (76.186%))
+  Logic Levels:           3  (LUT6=3)
   Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    2.660ns = ( 12.660 - 10.000 ) 
-    Source Clock Delay      (SCD):    2.920ns
-    Clock Pessimism Removal (CPR):    0.115ns
+    Destination Clock Delay (DCD):    1.809ns = ( 11.809 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.024ns
+    Clock Pessimism Removal (CPR):    0.070ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.000ns
@@ -38,78 +38,34 @@ Slack (VIOLATED) :        -4.093ns  (required time - arrival time)
     N15                                               0.000     0.000 r  clk_100mhz (IN)
                          net (fo=0)                   0.000     0.000    clk_100mhz
     N15                  IBUF (Prop_ibuf_I_O)         1.440     1.440 r  clk_100mhz_IBUF_inst/O
-                         net (fo=1, unplaced)         0.800     2.240    clk_100mhz_IBUF
-                         BUFG (Prop_bufg_I_O)         0.096     2.336 r  clk_100mhz_IBUF_BUFG_inst/O
-                         net (fo=3275, unplaced)      0.584     2.920    dut/clk_100mhz_IBUF_BUFG
-                         FDRE                                         r  dut/input_i_reg[1]/C
+                         net (fo=205, unplaced)       0.584     2.024    manta_inst/brx/clk_100mhz
+                         FDRE                                         r  manta_inst/brx/FSM_onehot_state_reg[1]/C
   -------------------------------------------------------------------    -------------------
-                         FDRE (Prop_fdre_C_Q)         0.456     3.376 r  dut/input_i_reg[1]/Q
-                         net (fo=58, unplaced)        1.051     4.427    dut/bmu_inst[1].bmu_j/Q[1]
-                         LUT6 (Prop_lut6_I0_O)        0.295     4.722 r  dut/bmu_inst[1].bmu_j/met_out1__0_carry__0_i_3__1/O
-                         net (fo=2, unplaced)         0.650     5.372    dut/bmu_inst[1].bmu_j/met_out1__0_carry__0_i_3__1_n_0
-                         CARRY4 (Prop_carry4_DI[1]_O[3])
-                                                      0.614     5.986 r  dut/bmu_inst[1].bmu_j/met_out1__0_carry__0/O[3]
-                         net (fo=3, unplaced)         0.636     6.622    dut/bmu_inst[1].bmu_j/met_out1__0_carry__0_n_4
-                         LUT4 (Prop_lut4_I1_O)        0.307     6.929 r  dut/bmu_inst[1].bmu_j/met_out1__58_carry__0_i_11__1/O
-                         net (fo=4, unplaced)         0.473     7.402    dut/bmu_inst[1].bmu_j/met_out1__58_carry__0_i_11__1_n_0
-                         LUT6 (Prop_lut6_I0_O)        0.124     7.526 r  dut/bmu_inst[1].bmu_j/met_out1__58_carry__0_i_3__1/O
-                         net (fo=1, unplaced)         0.639     8.165    dut/bmu_inst[1].bmu_j/met_out1__58_carry__0_i_3__1_n_0
-                         CARRY4 (Prop_carry4_DI[1]_CO[3])
-                                                      0.507     8.672 r  dut/bmu_inst[1].bmu_j/met_out1__58_carry__0/CO[3]
-                         net (fo=1, unplaced)         0.000     8.672    dut/bmu_inst[1].bmu_j/met_out1__58_carry__0_n_0
-                         CARRY4 (Prop_carry4_CI_O[0])
-                                                      0.235     8.907 r  dut/bmu_inst[1].bmu_j/met_out1__58_carry__1/O[0]
-                         net (fo=4, unplaced)         0.494     9.401    dut/bmu_inst[1].bmu_j/met_out1__58_carry__1_n_7
-                         LUT2 (Prop_lut2_I0_O)        0.295     9.696 r  dut/bmu_inst[1].bmu_j/sm_out[15]_i_16__0/O
-                         net (fo=1, unplaced)         0.000     9.696    dut/bmu_inst[1].bmu_j/sm_out[15]_i_16__0_n_0
-                         CARRY4 (Prop_carry4_S[1]_O[3])
-                                                      0.640    10.336 r  dut/bmu_inst[1].bmu_j/sm_out_reg[15]_i_4__0/O[3]
-                         net (fo=128, unplaced)       0.724    11.060    dut/bmu_inst[1].bmu_j/sm_out_reg[15]_i_4__0_n_4
-                         LUT2 (Prop_lut2_I0_O)        0.307    11.367 r  dut/bmu_inst[1].bmu_j/sm_out[15]_i_6__50/O
-                         net (fo=1, unplaced)         0.000    11.367    dut/bmu_inst[1].bmu_j/sm_out[15]_i_6__50_n_0
-                         CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550    11.917 r  dut/bmu_inst[1].bmu_j/sm_out_reg[15]_i_2__50/CO[3]
-                         net (fo=1, unplaced)         0.000    11.917    dut/bmu_inst[1].bmu_j/sm_out_reg[15]_i_2__50_n_0
-                         CARRY4 (Prop_carry4_CI_O[3])
-                                                      0.329    12.246 f  dut/bmu_inst[1].bmu_j/sm_out_reg[19]_i_2__49/O[3]
-                         net (fo=5, unplaced)         0.646    12.892    dut/bmu_inst[1].bmu_j/sm_out50_out_24[19]
-                         LUT2 (Prop_lut2_I1_O)        0.307    13.199 r  dut/bmu_inst[1].bmu_j/sm_out[19]_i_11__50/O
-                         net (fo=1, unplaced)         0.000    13.199    dut/bmu_inst[1].bmu_j/sm_out[19]_i_11__50_n_0
-                         CARRY4 (Prop_carry4_S[1]_CO[1])
-                                                      0.491    13.690 r  dut/bmu_inst[1].bmu_j/sm_out_reg[19]_i_3__50/CO[1]
-                         net (fo=40, unplaced)        0.688    14.378    dut/bmu_inst[3].bmu_j/sm_out_reg[0][0]
-                         LUT6 (Prop_lut6_I3_O)        0.332    14.710 r  dut/bmu_inst[3].bmu_j/sm_out[19]_i_69__49/O
-                         net (fo=1, unplaced)         0.639    15.349    dut/bmu_inst[3].bmu_j/sm_out[19]_i_69__49_n_0
-                         CARRY4 (Prop_carry4_DI[1]_CO[3])
-                                                      0.507    15.856 r  dut/bmu_inst[3].bmu_j/sm_out_reg[19]_i_42__48/CO[3]
-                         net (fo=1, unplaced)         0.009    15.865    dut/bmu_inst[3].bmu_j/sm_out_reg[19]_i_42__48_n_0
-                         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    15.979 r  dut/bmu_inst[3].bmu_j/sm_out_reg[19]_i_19__48/CO[3]
-                         net (fo=1, unplaced)         0.000    15.979    dut/bmu_inst[3].bmu_j/sm_out_reg[19]_i_19__48_n_0
-                         CARRY4 (Prop_carry4_CI_CO[1])
-                                                      0.178    16.157 f  dut/bmu_inst[3].bmu_j/sm_out_reg[19]_i_6__50/CO[1]
-                         net (fo=21, unplaced)        0.373    16.530    dut/acs_0/CO[0]
-                         LUT4 (Prop_lut4_I2_O)        0.332    16.862 r  dut/acs_0/prev_state[0]_i_1__50/O
-                         net (fo=1, unplaced)         0.000    16.862    dut/acs_0/prev_state[0]_i_1__50_n_0
-                         FDRE                                         r  dut/acs_0/prev_state_reg[0]/D
+                         FDRE (Prop_fdre_C_Q)         0.456     2.480 f  manta_inst/brx/FSM_onehot_state_reg[1]/Q
+                         net (fo=5, unplaced)         0.993     3.473    manta_inst/brx/FSM_onehot_state_reg_n_0_[1]
+                         LUT6 (Prop_lut6_I0_O)        0.295     3.768 f  manta_inst/brx/FSM_onehot_state[0]_i_3/O
+                         net (fo=4, unplaced)         0.926     4.694    manta_inst/urx/valid_o_reg_0
+                         LUT6 (Prop_lut6_I0_O)        0.124     4.818 f  manta_inst/urx/valid_o_i_1/O
+                         net (fo=5, unplaced)         0.477     5.295    manta_inst/brx/valid_o_reg_0
+                         LUT6 (Prop_lut6_I5_O)        0.124     5.419 r  manta_inst/brx/addr_o[3]_i_1/O
+                         net (fo=4, unplaced)         0.800     6.219    manta_inst/brx/addr_o[3]_i_1_n_0
+                         FDRE                                         r  manta_inst/brx/addr_o_reg[0]/R
   -------------------------------------------------------------------    -------------------
 
                          (clock gclk rise edge)      10.000    10.000 r  
     N15                                               0.000    10.000 r  clk_100mhz (IN)
                          net (fo=0)                   0.000    10.000    clk_100mhz
     N15                  IBUF (Prop_ibuf_I_O)         1.370    11.370 r  clk_100mhz_IBUF_inst/O
-                         net (fo=1, unplaced)         0.760    12.130    clk_100mhz_IBUF
-                         BUFG (Prop_bufg_I_O)         0.091    12.221 r  clk_100mhz_IBUF_BUFG_inst/O
-                         net (fo=3275, unplaced)      0.439    12.660    dut/acs_0/clk_100mhz_IBUF_BUFG
-                         FDRE                                         r  dut/acs_0/prev_state_reg[0]/C
-                         clock pessimism              0.115    12.775    
-                         clock uncertainty           -0.035    12.740    
-                         FDRE (Setup_fdre_C_D)        0.029    12.769    dut/acs_0/prev_state_reg[0]
+                         net (fo=205, unplaced)       0.439    11.809    manta_inst/brx/clk_100mhz
+                         FDRE                                         r  manta_inst/brx/addr_o_reg[0]/C
+                         clock pessimism              0.070    11.879    
+                         clock uncertainty           -0.035    11.844    
+                         FDRE (Setup_fdre_C_R)       -0.433    11.411    manta_inst/brx/addr_o_reg[0]
   -------------------------------------------------------------------
-                         required time                         12.769    
-                         arrival time                         -16.862    
+                         required time                         11.411    
+                         arrival time                          -6.219    
   -------------------------------------------------------------------
-                         slack                                 -4.093    
+                         slack                                  5.192    
 
 
 

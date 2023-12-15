@@ -46,17 +46,63 @@ module top_level(
   logic valid_out;
   logic sm_out_deb;
   logic valid_inp_vit;
-  logic [5:0] last_state;
+
+  logic clk_wiz_81;
+  logic locked;
+   clk_wiz_0 clk_81
+   (
+    // Clock out ports
+    .clk_out1(clk_wiz_81),     // output clk_out1
+    // Status and control signals
+    .reset(sys_rst), // input reset
+    .locked(locked),       // output locked
+   // Clock in ports
+    .clk_in1(clk_100mhz)      // input clk_in1
+);
+
+ logic [5:0] last_state;
+
+logic soft_inp_0;
+logic soft_inp_1;
+logic valid_in_vit_0;
+logic valid_in_vit_1;
+logic vit_desc_0;
+logic vit_desc_1;
+logic ready_in_0;
+logic ready_in_1;
+logic last_state_0;
+logic last_state_1;
+logic valid_out_0;
+logic valid_out_1;
+logic sys_rst_0;
+logic sys_rst_1;
+
+always_ff @(posedge clk_100mhz) begin
+  soft_inp_0 <= manta_soft_inp;
+  soft_inp_1 <= soft_inp_0;
+  valid_in_vit_0 <= valid_inp_vit;
+  valid_in_vit_1 <= valid_in_vit_0;
+  vit_desc_0 <= vit_desc;
+  vit_desc_1 <= vit_desc_0;
+  ready_in_0 <= ready_in;
+  ready_in_1 <= ready_in_0;
+  last_state_0 <= last_state;
+  last_state_1 <= last_state_0;
+  valid_out_0 <= valid_out;
+  valid_out_1 <= valid_out_0;
+  sys_rst_0 <= sys_rst + manta_rst;
+  sys_rst_1 <= sys_rst_0;
+end
 
   viterbi dut (
-      .clk(clk_100mhz),
-      .sys_rst(sys_rst | manta_rst),
-      .soft_inp(manta_soft_inp),
-      .valid_in_vit(valid_inp_vit),
-      .vit_desc(vit_desc),
-      .ready_in(ready_in),
-      .last_state(last_state),
-      .valid_out_vit(valid_out)
+      .clk(clk_wiz_81),
+      .sys_rst(sys_rst_1),
+      .soft_inp(soft_inp_1),
+      .valid_in_vit(valid_in_vit_1),
+      .vit_desc(vit_desc_1),
+      .ready_in(ready_in_1),
+      .last_state(last_state_1),
+      .valid_out_vit(valid_out_1)
   );
 
   always_ff @(posedge clk_100mhz) begin

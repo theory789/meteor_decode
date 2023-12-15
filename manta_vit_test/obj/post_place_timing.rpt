@@ -1,31 +1,31 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
-| Date         : Thu Dec 14 14:01:56 2023
+| Date         : Fri Dec 15 16:35:31 2023
 | Host         : worker running 64-bit Ubuntu 20.04.6 LTS
 | Command      : report_timing -file obj/post_place_timing.rpt
 | Design       : top_level
 | Device       : 7s50-csga324
 | Speed File   : -1  PRODUCTION 1.23 2018-06-13
-| Design State : Physopt postPlace
+| Design State : Fully Placed
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
 Timing Report
 
-Slack (VIOLATED) :        -6.348ns  (required time - arrival time)
-  Source:                 dut/input_i_reg[4]_replica_3/C
+Slack (MET) :             5.223ns  (required time - arrival time)
+  Source:                 manta_inst/urx/baud_counter_reg[0]/C
                             (rising edge-triggered cell FDRE clocked by gclk  {rise@0.000ns fall@4.000ns period=10.000ns})
-  Destination:            dut/acs_47/sm_out_reg[15]/D
+  Destination:            manta_inst/urx/baud_counter_reg[0]/R
                             (rising edge-triggered cell FDRE clocked by gclk  {rise@0.000ns fall@4.000ns period=10.000ns})
   Path Group:             gclk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (gclk rise@10.000ns - gclk rise@0.000ns)
-  Data Path Delay:        16.230ns  (logic 6.846ns (42.181%)  route 9.384ns (57.819%))
-  Logic Levels:           21  (CARRY4=12 LUT2=3 LUT4=1 LUT5=1 LUT6=4)
-  Clock Path Skew:        -0.114ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.774ns = ( 14.774 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.068ns
-    Clock Pessimism Removal (CPR):    0.181ns
+  Data Path Delay:        4.084ns  (logic 0.992ns (24.290%)  route 3.092ns (75.710%))
+  Logic Levels:           3  (LUT4=2 LUT5=1)
+  Clock Path Skew:        -0.026ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.836ns = ( 14.836 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.127ns
+    Clock Pessimism Removal (CPR):    0.266ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.000ns
@@ -40,66 +40,18 @@ Slack (VIOLATED) :        -6.348ns  (required time - arrival time)
     N15                  IBUF (Prop_ibuf_I_O)         1.440     1.440 r  clk_100mhz_IBUF_inst/O
                          net (fo=1, estimated)        1.972     3.412    clk_100mhz_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.508 r  clk_100mhz_IBUF_BUFG_inst/O
-                         net (fo=3323, estimated)     1.560     5.068    dut/clk_100mhz_IBUF_BUFG
-    SLICE_X15Y18         FDRE                                         r  dut/input_i_reg[4]_replica_3/C
+                         net (fo=204, estimated)      1.619     5.127    manta_inst/urx/clk_100mhz
+    SLICE_X5Y89          FDRE                                         r  manta_inst/urx/baud_counter_reg[0]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X15Y18         FDRE (Prop_fdre_C_Q)         0.456     5.524 r  dut/input_i_reg[4]_replica_3/Q
-                         net (fo=36, estimated)       0.874     6.398    dut/bmu_inst[1].bmu_j/input_i_reg_n_0_[4]_repN_3_alias
-    SLICE_X15Y20         LUT6 (Prop_lut6_I1_O)        0.124     6.522 r  dut/bmu_inst[1].bmu_j/met_out1__0_carry__0_i_3__1/O
-                         net (fo=2, estimated)        0.440     6.962    dut/bmu_inst[1].bmu_j/met_out1__0_carry__0_i_3__1_n_0
-    SLICE_X14Y22         LUT6 (Prop_lut6_I0_O)        0.124     7.086 r  dut/bmu_inst[1].bmu_j/met_out1__0_carry__0_i_7__1/O
-                         net (fo=1, routed)           0.000     7.086    dut/bmu_inst[1].bmu_j/met_out1__0_carry__0_i_7__1_n_0
-    SLICE_X14Y22         CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.533     7.619 r  dut/bmu_inst[1].bmu_j/met_out1__0_carry__0/CO[3]
-                         net (fo=1, estimated)        0.000     7.619    dut/bmu_inst[1].bmu_j/met_out1__0_carry__0_n_0
-    SLICE_X14Y23         CARRY4 (Prop_carry4_CI_O[0])
-                                                      0.219     7.838 r  dut/bmu_inst[1].bmu_j/met_out1__0_carry__1/O[0]
-                         net (fo=3, estimated)        0.948     8.786    dut/bmu_inst[1].bmu_j/met_out1__0_carry__1_n_7
-    SLICE_X30Y20         LUT4 (Prop_lut4_I1_O)        0.295     9.081 r  dut/bmu_inst[1].bmu_j/met_out1__58_carry__0_i_10__1/O
-                         net (fo=3, estimated)        0.923    10.004    dut/bmu_inst[1].bmu_j/met_out1__58_carry__0_i_10__1_n_0
-    SLICE_X35Y25         LUT6 (Prop_lut6_I0_O)        0.124    10.128 r  dut/bmu_inst[1].bmu_j/met_out1__58_carry__0_i_5__1/O
-                         net (fo=1, routed)           0.000    10.128    dut/bmu_inst[1].bmu_j/met_out1__58_carry__0_i_5__1_n_0
-    SLICE_X35Y25         CARRY4 (Prop_carry4_S[3]_CO[3])
-                                                      0.401    10.529 r  dut/bmu_inst[1].bmu_j/met_out1__58_carry__0/CO[3]
-                         net (fo=1, estimated)        0.000    10.529    dut/bmu_inst[1].bmu_j/met_out1__58_carry__0_n_0
-    SLICE_X35Y26         CARRY4 (Prop_carry4_CI_O[0])
-                                                      0.222    10.751 r  dut/bmu_inst[1].bmu_j/met_out1__58_carry__1/O[0]
-                         net (fo=4, estimated)        0.972    11.723    dut/bmu_inst[1].bmu_j/met_out1__58_carry__1_n_7
-    SLICE_X44Y21         LUT2 (Prop_lut2_I0_O)        0.299    12.022 r  dut/bmu_inst[1].bmu_j/sm_out[15]_i_16/O
-                         net (fo=1, routed)           0.000    12.022    dut/bmu_inst[1].bmu_j/sm_out[15]_i_16_n_0
-    SLICE_X44Y21         CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550    12.572 r  dut/bmu_inst[1].bmu_j/sm_out_reg[15]_i_4/CO[3]
-                         net (fo=1, estimated)        0.000    12.572    dut/bmu_inst[1].bmu_j/sm_out_reg[15]_i_4_n_0
-    SLICE_X44Y22         CARRY4 (Prop_carry4_CI_O[1])
-                                                      0.334    12.906 r  dut/bmu_inst[1].bmu_j/sm_out_reg[19]_i_7__0/O[1]
-                         net (fo=128, estimated)      1.895    14.801    dut/bmu_inst[1].bmu_j/sm_out_reg[19]_i_7__0_n_6
-    SLICE_X10Y21         LUT2 (Prop_lut2_I0_O)        0.303    15.104 r  dut/bmu_inst[1].bmu_j/sm_out[15]_i_8__36/O
-                         net (fo=1, routed)           0.000    15.104    dut/bmu_inst[1].bmu_j/sm_out[15]_i_8__36_n_0
-    SLICE_X10Y21         CARRY4 (Prop_carry4_S[3]_CO[3])
-                                                      0.376    15.480 r  dut/bmu_inst[1].bmu_j/sm_out_reg[15]_i_3__36/CO[3]
-                         net (fo=1, estimated)        0.000    15.480    dut/bmu_inst[1].bmu_j/sm_out_reg[15]_i_3__36_n_0
-    SLICE_X10Y22         CARRY4 (Prop_carry4_CI_O[2])
-                                                      0.239    15.719 f  dut/bmu_inst[1].bmu_j/sm_out_reg[19]_i_4__36/O[2]
-                         net (fo=5, estimated)        1.538    17.257    dut/bmu_inst[1].bmu_j/acs_47/sm_out5[18]
-    SLICE_X36Y21         LUT2 (Prop_lut2_I0_O)        0.301    17.558 r  dut/bmu_inst[1].bmu_j/sm_out[19]_i_17__35/O
-                         net (fo=1, routed)           0.000    17.558    dut/bmu_inst[1].bmu_j/sm_out[19]_i_17__35_n_0
-    SLICE_X36Y21         CARRY4 (Prop_carry4_S[1]_CO[1])
-                                                      0.491    18.049 f  dut/bmu_inst[1].bmu_j/sm_out_reg[19]_i_5__36/CO[1]
-                         net (fo=40, estimated)       0.767    18.816    dut/bmu_inst[1].bmu_j/sm_out_reg[19]_i_5__36_n_2
-    SLICE_X30Y20         LUT6 (Prop_lut6_I5_O)        0.329    19.145 r  dut/bmu_inst[1].bmu_j/sm_out[19]_i_70__36/O
-                         net (fo=1, estimated)        0.330    19.475    dut/bmu_inst[1].bmu_j/sm_out[19]_i_70__36_n_0
-    SLICE_X32Y20         CARRY4 (Prop_carry4_DI[0]_CO[3])
-                                                      0.526    20.001 r  dut/bmu_inst[1].bmu_j/sm_out_reg[19]_i_42__34/CO[3]
-                         net (fo=1, estimated)        0.000    20.001    dut/bmu_inst[1].bmu_j/sm_out_reg[19]_i_42__34_n_0
-    SLICE_X32Y21         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    20.115 r  dut/bmu_inst[1].bmu_j/sm_out_reg[19]_i_19__34/CO[3]
-                         net (fo=1, estimated)        0.000    20.115    dut/bmu_inst[1].bmu_j/sm_out_reg[19]_i_19__34_n_0
-    SLICE_X32Y22         CARRY4 (Prop_carry4_CI_CO[1])
-                                                      0.157    20.272 r  dut/bmu_inst[1].bmu_j/sm_out_reg[19]_i_6__36/CO[1]
-                         net (fo=21, estimated)       0.697    20.969    dut/bmu_inst[1].bmu_j/sm_out[19]_i_23__36_0[0]
-    SLICE_X40Y20         LUT5 (Prop_lut5_I4_O)        0.329    21.298 r  dut/bmu_inst[1].bmu_j/sm_out[15]_i_1__36/O
-                         net (fo=1, routed)           0.000    21.298    dut/acs_47/sm_out_reg[19]_1[15]
-    SLICE_X40Y20         FDRE                                         r  dut/acs_47/sm_out_reg[15]/D
+    SLICE_X5Y89          FDRE (Prop_fdre_C_Q)         0.419     5.546 f  manta_inst/urx/baud_counter_reg[0]/Q
+                         net (fo=3, estimated)        0.960     6.506    manta_inst/urx/baud_counter[0]
+    SLICE_X6Y89          LUT4 (Prop_lut4_I0_O)        0.296     6.802 r  manta_inst/urx/state[3]_i_5/O
+                         net (fo=1, estimated)        0.722     7.524    manta_inst/urx/state[3]_i_5_n_0
+    SLICE_X4Y91          LUT4 (Prop_lut4_I1_O)        0.124     7.648 r  manta_inst/urx/state[3]_i_3/O
+                         net (fo=5, estimated)        0.721     8.369    manta_inst/urx/state[3]_i_3_n_0
+    SLICE_X4Y90          LUT5 (Prop_lut5_I4_O)        0.153     8.522 r  manta_inst/urx/state[3]_i_1/O
+                         net (fo=18, estimated)       0.689     9.211    manta_inst/urx/state[3]_i_1_n_0
+    SLICE_X5Y89          FDRE                                         r  manta_inst/urx/baud_counter_reg[0]/R
   -------------------------------------------------------------------    -------------------
 
                          (clock gclk rise edge)      10.000    10.000 r  
@@ -108,16 +60,16 @@ Slack (VIOLATED) :        -6.348ns  (required time - arrival time)
     N15                  IBUF (Prop_ibuf_I_O)         1.370    11.370 r  clk_100mhz_IBUF_inst/O
                          net (fo=1, estimated)        1.873    13.244    clk_100mhz_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.335 r  clk_100mhz_IBUF_BUFG_inst/O
-                         net (fo=3323, estimated)     1.439    14.774    dut/acs_47/clk_100mhz_IBUF_BUFG
-    SLICE_X40Y20         FDRE                                         r  dut/acs_47/sm_out_reg[15]/C
-                         clock pessimism              0.181    14.954    
-                         clock uncertainty           -0.035    14.919    
-    SLICE_X40Y20         FDRE (Setup_fdre_C_D)        0.031    14.950    dut/acs_47/sm_out_reg[15]
+                         net (fo=204, estimated)      1.501    14.836    manta_inst/urx/clk_100mhz
+    SLICE_X5Y89          FDRE                                         r  manta_inst/urx/baud_counter_reg[0]/C
+                         clock pessimism              0.266    15.101    
+                         clock uncertainty           -0.035    15.066    
+    SLICE_X5Y89          FDRE (Setup_fdre_C_R)       -0.632    14.434    manta_inst/urx/baud_counter_reg[0]
   -------------------------------------------------------------------
-                         required time                         14.950    
-                         arrival time                         -21.298    
+                         required time                         14.434    
+                         arrival time                          -9.211    
   -------------------------------------------------------------------
-                         slack                                 -6.348    
+                         slack                                  5.223    
 
 
 
