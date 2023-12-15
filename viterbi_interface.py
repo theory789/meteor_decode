@@ -86,8 +86,8 @@ def viterbi(length, soft_cadu):
             else: 
                 vit_desc_out.append(vit_desc)
                 valid_count += 1
-                # print(f"Vit_desc: {vit_desc}")
-                # print(valid_count)
+                print(f"Vit_desc: {vit_desc}")
+                print(valid_count)
 
 
     count_low = 0
@@ -108,6 +108,7 @@ def viterbi(length, soft_cadu):
         last_state = m.lab8_io_core.last_state.get()
         vit_desc_out.append(vit_desc)
         if (valid_out == 1):
+            print(f"Vit_desc: {vit_desc}")
             print(valid_count)
             valid_count += 1
             if (vit_desc == 0):
